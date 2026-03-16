@@ -1,0 +1,12 @@
+# Exécutables et objets
+*.o
+*.out
+tester
+
+# Dossiers de compilation Qt
+build-*/
+*.user
+
+# Système
+.DS_Store
+Thumbs.db
