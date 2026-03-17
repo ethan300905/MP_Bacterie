@@ -156,8 +156,8 @@ find_sfml()
 # Unit tests
 
 ## UNCOMMENT WHEN READY
-# add_executable(circularBoundaryTest ${TEST_DIR}/UnitTests/CircularBoundaryTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
-# configure_sfml_executable(circularBoundaryTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+add_executable(circularBoundaryTest ${TEST_DIR}/UnitTests/CircularBoundaryTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
+configure_sfml_executable(circularBoundaryTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
 add_executable(vec2dTest ${TEST_DIR}/UnitTests/Vec2dTest.cpp ${CACHE_SOURCES})
 configure_sfml_executable(vec2dTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
