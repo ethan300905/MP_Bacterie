@@ -16,8 +16,6 @@ int main(int argc, char** argv)
 {
     // Save the application directory in a global variable
     appDir = argv[0];
-    std::cout << "Coucou gab";
-    std::cout<<"Yo mec";
     std::string::size_type lastSlashPos = appDir.rfind('/');
     if (lastSlashPos == std::string::npos) {
         appDir = "./";
