@@ -8,7 +8,6 @@
 #include <Utility/Vec2d.hpp>
 #include <ostream>
 
-// CODE  TO BE COMPLETED
 
 /**
  *  @brief A circular boundary is defined by a radius and a position
@@ -27,7 +26,8 @@ public:
     double getRadius() const;
     void setRadius(double);
     void move(const Vec2d&);
-    bool  contains(CircularBoundary);
+    bool contains(const CircularBoundary& other) const;
+    bool isColliding(const CircularBoundary& other) const;
 
 
 private:
@@ -36,5 +36,4 @@ private:
 
 };
 
-// CODE  TO BE COMPLETED
 

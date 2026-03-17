@@ -5,7 +5,7 @@
 
 #include <Lab/CircularBoundary.hpp>
 
-// CODE  TO BE COMPLETED
+
 CircularBoundary::CircularBoundary(Vec2d position, double rayon)
     : position_(position),
       rayon_(rayon)
@@ -31,8 +31,10 @@ void CircularBoundary::move(const Vec2d& deplacement){
     position_ += deplacement;
 }
 
-bool  contains(CircularBoundary other){
-    //if((other.rayon_>= rayon_)&&(distance(a,b)<=(b.rayon_-a.rayon_)){
-
+bool CircularBoundary::contains(const CircularBoundary& other) const {
+    if((rayon_ >= other.getRadius())&& distance(this->position_, other.getPosition())<= (rayon_ - other.getRadius()))
+    {
+    return true;
+    }
+    return false;
 }
-
