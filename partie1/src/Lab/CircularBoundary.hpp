@@ -26,8 +26,13 @@ public:
     double getRadius() const;
     void setRadius(double);
     void move(const Vec2d&);
-    bool contains(const CircularBoundary& other) const;
-    //bool isColliding(const CircularBoundary& other) const;
+    bool contains(const CircularBoundary&) const;
+    bool isColliding(const CircularBoundary&) const;
+    bool contains(const Vec2d&) const;
+
+    bool operator>(const CircularBoundary&) const;
+    bool operator&(const CircularBoundary&) const;
+    bool operator>(const Vec2d&) const;
 
 
 private:
@@ -36,4 +41,5 @@ private:
 
 };
 
+std::ostream& operator<<(std::ostream&, const CircularBoundary&);
 
