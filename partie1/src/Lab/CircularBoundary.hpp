@@ -27,7 +27,7 @@ public:
     void setRadius(double);
     void move(const Vec2d&);
     bool contains(const CircularBoundary& other) const;
-    bool isColliding(const CircularBoundary& other) const;
+    //bool isColliding(const CircularBoundary& other) const;
 
 
 private:
