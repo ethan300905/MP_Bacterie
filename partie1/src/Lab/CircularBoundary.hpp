@@ -17,6 +17,22 @@
  */
 class CircularBoundary
 {
+public:
+
+    CircularBoundary(Vec2d, double);
+    CircularBoundary(const CircularBoundary&) = default;
+    CircularBoundary& operator=(const CircularBoundary&) = default;
+    const Vec2d& getPosition() const;
+    void setPosition(Vec2d);
+    double getRadius() const;
+    void setRadius(double);
+    void move(const Vec2d&);
+    bool  contains(CircularBoundary);
+
+
+private:
+    Vec2d position_;
+    double rayon_;
 
 };
 
