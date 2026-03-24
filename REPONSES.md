@@ -23,7 +23,7 @@
 *************************************************
 ##Q2.1
  
--Une boite est-un contour circulaire, on peut donc définir une relation d'héritage ou la clsse CultureDish hérite de la classe Circularboundary.
+-Une boite est-un contour circulaire, on peut donc définir une relation d'héritage ou la classe CultureDish hérite de la classe Circularboundary.
 
 *************************************************
 ##Q2.2
