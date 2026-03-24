@@ -1,6 +1,8 @@
-#ifndef LABORATORY_HPP
-#define LABORATORY_HPP
-#include "Culturedish.hpp"
+#pragma once
+#include "CultureDish.hpp"
+#include<vector>
+
+
 
 class Laboratory
 {
@@ -16,11 +18,11 @@ public:
     double getTemperature() const;
     void reset();
     void resetControls();
-
+    void drawOn(sf::RenderTarget&);
+    void update(sf::Time);
 private:
     std::vector<CultureDish*> CultureDishes_;
     size_t indice_;
 
 };
 
-#endif // LABORATORY_HPP

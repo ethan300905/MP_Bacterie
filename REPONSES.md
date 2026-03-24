@@ -42,11 +42,14 @@
 -  Lors de la destruction il faudra bien effacer les objets bactéries et nutrient qui se trouvent dans la boite. On ne peut pas utiliser une méthode existante car update() ou drawOn() n'ont pas le rôle de libérer la mémoire.
 
 *************************************************
+##Q2.5
 
+- On appelle DrawOn() uniquement sur l'instance courante de CultureDish pour ne pas surcharger l'écran
+- On appelle update() sur chaque CultureDish car elles doivent évoluer même si on ne les voit pas 
+*************************************************
 ##Q2.6
 
 
-- Pour modéliser les sources de nutriments, on utilise l'héritage en faisant en sorte que notre classe Nutrient dérive directement de CircularBoundary.
-- Comme une source de nutriments possède par définition une forme circulaire, elle "est" une frontière circulaire. 
+- Pour modéliser les sources de nutriments, on utilise l'héritage en faisant en sorte que notre classe Nutrient "est-un" CircularBoundary.
 
 *************************************************

@@ -1,5 +1,4 @@
-#ifndef BACTERIUM_HPP
-#define BACTERIUM_HPP
+#pragma once
 
 
 class Bacterium
@@ -8,4 +7,3 @@ public:
     Bacterium();
 };
 
-#endif // BACTERIUM_HPP

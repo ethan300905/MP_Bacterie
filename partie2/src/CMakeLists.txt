@@ -165,5 +165,5 @@ configure_sfml_executable(vec2dTest "${sfml_include_dirs}" "${sfml_cxx_standard}
 
 # Graphical tests
 
-#add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
-#configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
+configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")

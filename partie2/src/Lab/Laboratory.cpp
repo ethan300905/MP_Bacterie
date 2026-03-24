@@ -1,6 +1,21 @@
 #include "Laboratory.hpp"
+#include "Config.hpp"
+#include "Application.hpp"
 
-Laboratory::Laboratory() {}
+
+
+Laboratory::Laboratory()
+   : indice_(0)
+{
+
+    for(size_t i(0); i < getShortConfig().culture_dishes_number; ++i){
+        Vec2d center = getApp().getCentre();
+        double rayon = (getApp().getLabSize().x() * 0.95)/2;
+
+        CultureDishes_.push_back(new CultureDish(center, rayon));
+    }
+
+}
 
 void Laboratory::nextDish() {
     if (indice_ + 1 < CultureDishes_.size()){
@@ -22,17 +37,29 @@ size_t Laboratory::getCurrentDishId() const{
 }
 
 void Laboratory::increaseTemperature(){
-    (CultureDishes_[indice_]).changeTemperature(1);
+    (CultureDishes_[indice_])->changeTemperature(1);
 }
 
 void Laboratory::decreaseTemperature(){
-    (CultureDishes_[indice_]).changeTemperature(-1);
+    (CultureDishes_[indice_])->changeTemperature(-1);
 }
 
 double Laboratory::getTemperature() const{
-    return CultureDishes_[indice_].getTemperature();
+    return CultureDishes_[indice_]->getTemperature();
 }
 
 void Laboratory::reset(){
-    CultureDishes_[indice_].reset();
+    CultureDishes_[indice_]->reset();
+}
+void Laboratory::resetControls(){
+
+}
+void Laboratory::drawOn(sf::RenderTarget& target){
+    CultureDishes_[indice_] ->drawOn(target);
+}
+
+void Laboratory::update(sf::Time time){
+    for(auto& dish:CultureDishes_){
+        dish -> update(time);
+    }
 }
