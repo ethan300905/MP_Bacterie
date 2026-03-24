@@ -32,3 +32,7 @@ void Laboratory::decreaseTemperature(){
 double Laboratory::getTemperature() const{
     return CultureDishes_[indice_].getTemperature();
 }
+
+void Laboratory::reset(){
+    CultureDishes_[indice_].reset();
+}
