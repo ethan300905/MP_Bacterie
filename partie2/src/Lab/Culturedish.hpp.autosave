@@ -26,7 +26,6 @@ public:
     double getTemperature() const;
 
 
-
 private:
     std::vector<Bacterium*> Bacteriums_;
     std::vector<Nutrient*> Nutrientsource_;

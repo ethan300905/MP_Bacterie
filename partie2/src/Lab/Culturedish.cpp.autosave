@@ -42,3 +42,4 @@ void CultureDish::changeTemperature(double delta){
 double CultureDish::getTemperature() const{
     return temperature_;
 }
+
