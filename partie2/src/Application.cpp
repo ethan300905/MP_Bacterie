@@ -558,7 +558,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
         case sf::Keyboard::Key::Tab: // next control
         case sf::Keyboard::Key::Q:
             mCurrentControl = static_cast<Control>((mCurrentControl + 1) % Control::NB_CONTROLS);
-            break;case sf::Keyboard::Key::Y:
+            break;
 
         case sf::Keyboard::Key::PageDown: // decrease current control
         case sf::Keyboard::Key::Y:        // decrease current control as well
@@ -571,7 +571,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
                 case STATS:
                     break;
                 case DISH_NUMBER:
-                    mLab->nextDish();
+                    mLab->previousDish();
                     break;
                 default:
                     break;
@@ -589,7 +589,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
                 case STATS:
                     break;
                 case DISH_NUMBER:
-                    mLab->previousDish();
+                    mLab->nextDish();
                     break;
                 default:
                     break;
