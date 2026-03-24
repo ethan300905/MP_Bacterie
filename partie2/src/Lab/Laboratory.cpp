@@ -11,8 +11,8 @@ void Laboratory::nextDish() {
 
 }
 void Laboratory::previousDish() {
-    if (indice_ - 1 < 0){
-        indice_ = CultureDishes_.size();
+    if (indice_ == 0){
+        indice_ = CultureDishes_.size() - 1;
     }else{
         indice_--;
     }
