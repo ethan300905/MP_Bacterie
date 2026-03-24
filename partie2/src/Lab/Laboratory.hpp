@@ -18,7 +18,7 @@ public:
     void resetControls();
 
 private:
-    std::vector<CultureDish> CultureDishes_;
+    std::vector<CultureDish*> CultureDishes_;
     size_t indice_;
 
 };
