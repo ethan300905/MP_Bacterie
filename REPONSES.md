@@ -26,3 +26,6 @@
 
 - Pour modéliser les sources de nutriments, on utilise l'héritage en faisant en sorte que notre classe Nutrient dérive directement de CircularBoundary.
 - Comme une source de nutriments possède par définition une forme circulaire, elle "est" une frontière circulaire. 
+
+
+-Test tu cpates
