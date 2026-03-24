@@ -24,7 +24,7 @@ public:
     void drawOn(sf::RenderTarget&);  //pas encore sur du void
     void changeTemperature(double delta);
     double getTemperature() const;
-
+    void reset();
 
 
 private:

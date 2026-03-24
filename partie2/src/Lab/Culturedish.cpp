@@ -9,16 +9,7 @@ CultureDish::CultureDish(Vec2d position, double rayon, double temperature)
 
 }
 CultureDish::~CultureDish(){
-    for (auto& bacterie : Bacteriums_){
-        delete bacterie;
-        bacterie = nullptr;
-    }
-    for (auto& nutrient : Nutrientsource_){
-        delete nutrient;
-        nutrient = nullptr;
-    }
-    Nutrientsource_.clear();
-    Bacteriums_.clear();
+    reset();
 }
 //(méthode)faire évoluer les bactéries ici:
 //le type bool permet de savoir si la bactérie ou le nutriment a bien été ajouté
@@ -41,4 +32,16 @@ void CultureDish::changeTemperature(double delta){
 }
 double CultureDish::getTemperature() const{
     return temperature_;
+}
+void CultureDish::reset(){
+    for (auto& bacterie : Bacteriums_){
+        delete bacterie;
+        bacterie = nullptr;
+    }
+    for (auto& nutrient : Nutrientsource_){
+        delete nutrient;
+        nutrient = nullptr;
+    }
+    Nutrientsource_.clear();
+    Bacteriums_.clear();
 }
