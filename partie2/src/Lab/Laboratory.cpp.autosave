@@ -1,0 +1,38 @@
+#include "Laboratory.hpp"
+
+Laboratory::Laboratory() {}
+
+void Laboratory::nextDish() {
+    if (indice_ + 1 <= CultureDishes_.size()){
+        indice_++;
+    }else{
+        indice_= 0;
+    }
+
+}
+void Laboratory::previousDish() {
+    if (indice_ - 1 < 0){
+        indice_ = CultureDishes_.size();
+    }else{
+        indice_--;
+    }
+}
+size_t Laboratory::getCurrentDishId() const{
+    return indice_;
+}
+
+void Laboratory::increaseTemperature(){
+    (CultureDishes_[indice_]).changeTemperature(1);
+}
+
+void Laboratory::decreaseTemperature(){
+    (CultureDishes_[indice_]).changeTemperature(-1);
+}
+
+double Laboratory::getTemperature() const{
+    return CultureDishes_[indice_].getTemperature();
+}
+
+void reset(){
+    CultureDishes_[indice_].clear()
+}
