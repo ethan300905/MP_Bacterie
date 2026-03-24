@@ -5,11 +5,13 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Application.hpp" //a voir quelles inclusions sont nécéssaires
+#include "CircularBoundary.hpp"
 
-class CultureDish
+class CultureDish:public CircularBoundary
 {
 public:
-    CultureDish();
+    CultureDish(Vec2d, double)
+    {};
     //(méthode)faire évoluer les bactéries ici:
     //le type bool permet de savoir si la bactérie ou le nutriment a bien été ajouté
     bool addBacterium(Bacterium*){
