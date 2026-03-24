@@ -3,7 +3,7 @@
 Laboratory::Laboratory() {}
 
 void Laboratory::nextDish() {
-    if (indice_ + 1 <= CultureDishes_.size()){
+    if (indice_ + 1 < CultureDishes_.size()){
         indice_++;
     }else{
         indice_= 0;
