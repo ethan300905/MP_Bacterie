@@ -56,3 +56,13 @@
 ##Q2.7
 
 - Le type Quantity défini comme un double permet une meilleure modularisation du code ainsi qu'une documentation induite, cela nous permet de mieux comprendre le code écrit.
+
+
+*************************************************
+##Q2.8
+
+- 
+
+
+
+

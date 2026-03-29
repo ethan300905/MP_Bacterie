@@ -1,6 +1,8 @@
 #include "CultureDish.hpp"
 #include "Application.hpp"
 #include "Utility/Utility.hpp"
+#include "Utility/Vec2d.hpp"
+#include "Utility/Types.hpp"
 
 
 
@@ -18,7 +20,16 @@ CultureDish::~CultureDish(){
 bool CultureDish::addBacterium(Bacterium*){
 
 }
-bool CultureDish::addNutrient(Nutrient*){
+bool CultureDish::addNutrient(Nutrient* nutrient){
+
+    if((this->contains(*nutrient)and not (this->isColliding(*nutrient)))){
+
+        Nutrientsource_.push_back(nutrient);
+            return true;
+    }else{
+            return false;
+}
+
 
 }
 void CultureDish::update(sf::Time dt){
