@@ -41,7 +41,7 @@ void Laboratory::increaseTemperature(){
 }
 
 void Laboratory::decreaseTemperature(){
-    (CultureDishes_[indice_])->changeTemperature(getAppConfig()["culture dish"]["temperature"]["delta"].toDouble());
+    (CultureDishes_[indice_])->changeTemperature(-getAppConfig()["culture dish"]["temperature"]["delta"].toDouble());
 }
 
 double Laboratory::getTemperature() const{
