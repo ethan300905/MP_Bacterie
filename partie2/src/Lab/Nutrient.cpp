@@ -11,6 +11,7 @@ Nutrient::Nutrient(const Quantity& quantity, Vec2d positionNutrient)
     index_=getAppEnv().getCurrentDishId();
 }
 
+//Delete quand il arrive 0
 Quantity Nutrient::takeQuantity(Quantity quantityTaken){
     Quantity actuallyTaken(0);
 
