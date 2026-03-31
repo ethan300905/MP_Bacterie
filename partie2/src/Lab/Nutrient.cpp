@@ -5,32 +5,35 @@
 
 Nutrient::Nutrient(const Quantity& quantity, Vec2d positionNutrient)
     : CircularBoundary(positionNutrient,quantity),
-      quantityNutrient_(quantity),
-      positionNutrient_(positionNutrient)
+      quantityNutrient_(quantity)
 
 {
     index_=getAppEnv().getCurrentDishId();
 }
 
 Quantity Nutrient::takeQuantity(Quantity quantityTaken){
+    Quantity actuallyTaken(0);
 
     if(quantityTaken < 0){  // if the quantity asked to be removed is negative : remove 0
         return 0;
 
     }else if (quantityTaken <= quantityNutrient_){
-    quantityNutrient_-=quantityTaken;
+        actuallyTaken = quantityTaken;
+    quantityNutrient_-=actuallyTaken;
 
-    }else if (quantityTaken> quantityNutrient_){   // if the quantity asked to be removed is bigger than the actual quantity: remove actual quantity
-        quantityNutrient_-=quantityNutrient_;
-        return quantityNutrient_;
+    }else{ // if the quantity asked to be removed is bigger than the actual quantity: remove actual quantity
+        actuallyTaken = quantityNutrient_;
+        quantityNutrient_ = 0;
     }
-        return quantityTaken;
+    setQuantity(quantityNutrient_);
+        return actuallyTaken;
 }
 
 void Nutrient::setQuantity(Quantity quantity){
 
-    if (quantity<0){
+    if (quantity<=0){
         quantityNutrient_=0;
+        setRadius(0);
     }else {
         quantityNutrient_=quantity;
         setRadius(quantity);
@@ -39,13 +42,40 @@ void Nutrient::setQuantity(Quantity quantity){
 
 }
 
-void Nutrient::drawOn(sf::RenderTarget& target) const{
+Quantity Nutrient::getQuantity() const{
+    return quantityNutrient_;
+}
 
-    auto nutrientSprite = buildSprite(positionNutrient_,getRadius(), getAppTexture(getConfig()["texture"].toString()));
+void Nutrient::drawOn(sf::RenderTarget& target) const{
+    auto const& texture = getAppTexture(getConfig()["texture"].toString());
+    auto nutrientSprite = buildSprite(getPosition(),getRadius(), texture);
     target.draw(nutrientSprite);
+
+    if(isDebugOn()){
+        Vec2d deplacement = Vec2d(0,-50);
+        int size =getRadius();
+        auto const text = buildText(std::to_string(size),getPosition()+deplacement,getAppFont(),15,sf::Color::Black,0);
+        target.draw(text);
+    }
 }
 
 j::Value const& Nutrient::getConfig() const{
 
-    return getAppConfig()["nutriments"];
+    return getAppConfig()["nutrients"];
+}
+
+
+void Nutrient::update(sf::Time dt){
+
+
+    double speed = getConfig()["growth"]["speed"].toDouble();
+    auto growth = speed * dt.asSeconds();
+    double minTemp = getConfig()["growth"]["min temperature"].toDouble();
+    double maxTemp = getConfig()["growth"]["max temperature"].toDouble();
+    Quantity maxQuantity = getConfig()["quantity"]["max"].toDouble();
+
+    if((minTemp <= getAppEnv().getTemperature())&&( getAppEnv().getTemperature()<= maxTemp) && (quantityNutrient_ <= maxQuantity*2) && (getAppEnv().contains(*this))){
+      quantityNutrient_ += growth;
+      setQuantity(quantityNutrient_);
+    }
 }

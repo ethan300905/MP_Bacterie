@@ -29,3 +29,4 @@
 ##27.03(vendredi)
 
 - code des fonctions de la classe Nutrient
+- création du fichier Journal.md

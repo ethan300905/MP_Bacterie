@@ -20,6 +20,8 @@ public:
     void resetControls();
     void drawOn(sf::RenderTarget&);
     void update(sf::Time);
+    void addNutrient(Nutrient*);
+    bool contains(const CircularBoundary&) const;
 private:
     std::vector<CultureDish*> CultureDishes_;
     size_t indice_;

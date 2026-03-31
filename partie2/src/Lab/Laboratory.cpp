@@ -63,3 +63,10 @@ void Laboratory::update(sf::Time time){
         dish -> update(time);
     }
 }
+void Laboratory::addNutrient(Nutrient* nutrient){
+    CultureDishes_[indice_] ->addNutrient(nutrient);
+}
+
+bool Laboratory::contains(const CircularBoundary& autre) const{
+    return CultureDishes_[indice_] -> contains(autre);
+}

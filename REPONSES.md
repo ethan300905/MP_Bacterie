@@ -61,7 +61,8 @@
 *************************************************
 ##Q2.8
 
-- 
+- On doit ajouter la fonction addNutrient à Laboratory qui va appeler la fonction addNutrient de CultureDish.
+- On doit modifier la fonction drawOn de CultureDish pour lui permettre de dessiner ses propres Nutrients, elle devra aussi dessiner ses bactéries par la suite.
 
 
 

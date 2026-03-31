@@ -1,4 +1,4 @@
-l/*
+ /*
  * POOSV 2026
  * ATTENTION: LE CODE SE DÉCLINE EN DEUX VARIANTES (SFML >=3 ou SFML < 3)
  * LORSQUE VOUS AUREZ À DÉCOMMENTER DU CODE FAITES-LE POUR LES DEUX VARIANTES
@@ -76,19 +76,19 @@ void NutrientTest::onEvent(sf::Event event, sf::RenderWindow&)
         case sf::Keyboard::N:
             lastCreated = new Nutrient(NUT_QTY, getCursorPositionInView());
 	    //UNCOMMENT WHEN READY TO TEST
-            //getEnv().addNutrient(lastCreated);
+            getEnv().addNutrient(lastCreated);
             break;
 
 
         // to test takeQuantity
         case sf::Keyboard::T:
-	  // UNCOMMENT WHEN READY TO TEST
-	  /*
+      // UNCOMMENT WHEN READY TO TEST
+
             if (lastCreated != nullptr) {
                 lastCreated->takeQuantity(15);
                 if (lastCreated->getQuantity() <=0)  { lastCreated= nullptr; }
             }
-	  */
+
             break;
         }
     }

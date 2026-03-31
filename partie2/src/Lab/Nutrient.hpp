@@ -15,10 +15,11 @@ public:
     void setQuantity(Quantity);
     void drawOn(sf::RenderTarget& target) const;
     j::Value const& getConfig() const;
+    Quantity getQuantity() const;
+    void update(sf::Time);
 
 private:
     Quantity quantityNutrient_;
-    Vec2d positionNutrient_;
     size_t index_;
 };
 
