@@ -49,8 +49,13 @@ void CultureDish::drawOn(sf::RenderTarget& targetWindow){
 
 void CultureDish::changeTemperature(double delta){
     if ((getAppConfig()["culture dish"]["temperature"]["min"].toDouble() <= (temperature_ + delta)) &&
-         (temperature_ + delta) <= getAppConfig()["culture dish"]["temperature"]["max"].toDouble())
+         (temperature_ + delta) <= getAppConfig()["culture dish"]["temperature"]["max"].toDouble()){
     temperature_ += delta;
+    /*}else if ((temperature_ + delta) > getAppConfig()["culture dish"]["temperature"]["max"].toDouble()){
+        temperature_ = getAppConfig()["culture dish"]["temperature"]["max"].toDouble();
+    }*/ // peut-etre si nombre permet pas d'aller au max car pas multiple le force 99 + 2 pas possible mais quand même à 100 ???
+
+}
 }
 void CultureDish::resetTemperature(){
     temperature_ = getAppConfig()["culture dish"]["temperature"]["default"].toDouble();
