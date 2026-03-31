@@ -69,7 +69,7 @@
 	    "min" : -10.0,
 	    "max" : 100.0,
 	    "default" : 25,
-	    "delta": 0.5
+            "delta": 0.5
 	}
     },
     "monotrichous" : {

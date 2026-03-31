@@ -48,6 +48,8 @@ void CultureDish::drawOn(sf::RenderTarget& targetWindow){
 }
 
 void CultureDish::changeTemperature(double delta){
+    if ((getAppConfig()["culture dish"]["temperature"]["min"].toDouble() <= (temperature_ + delta)) &&
+         (temperature_ + delta) <= getAppConfig()["culture dish"]["temperature"]["max"].toDouble())
     temperature_ += delta;
 }
 void CultureDish::resetTemperature(){

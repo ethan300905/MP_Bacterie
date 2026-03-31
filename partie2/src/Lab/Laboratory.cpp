@@ -37,11 +37,11 @@ size_t Laboratory::getCurrentDishId() const{
 }
 
 void Laboratory::increaseTemperature(){
-    (CultureDishes_[indice_])->changeTemperature(1);
+    (CultureDishes_[indice_])->changeTemperature(getAppConfig()["culture dish"]["temperature"]["delta"].toDouble());
 }
 
 void Laboratory::decreaseTemperature(){
-    (CultureDishes_[indice_])->changeTemperature(-1);
+    (CultureDishes_[indice_])->changeTemperature(getAppConfig()["culture dish"]["temperature"]["delta"].toDouble());
 }
 
 double Laboratory::getTemperature() const{
