@@ -16,12 +16,13 @@ public:
     void increaseTemperature();
     void decreaseTemperature();
     double getTemperature() const;
+    double getTemperature(size_t) const;
     void reset();
     void resetControls();
     void drawOn(sf::RenderTarget&);
     void update(sf::Time);
     void addNutrient(Nutrient*);
-    bool contains(const CircularBoundary&) const;
+    bool contains(size_t, const CircularBoundary&) const;
 private:
     std::vector<CultureDish*> CultureDishes_;
     size_t indice_;

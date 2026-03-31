@@ -48,11 +48,16 @@ double Laboratory::getTemperature() const{
     return CultureDishes_[indice_]->getTemperature();
 }
 
+double Laboratory::getTemperature(size_t index) const {
+    return CultureDishes_[index]->getTemperature();
+}
+
 void Laboratory::reset(){
     CultureDishes_[indice_]->reset();
+    resetControls();
 }
 void Laboratory::resetControls(){
-
+    CultureDishes_[indice_] -> resetTemperature();
 }
 void Laboratory::drawOn(sf::RenderTarget& target){
     CultureDishes_[indice_] ->drawOn(target);
@@ -67,6 +72,6 @@ void Laboratory::addNutrient(Nutrient* nutrient){
     CultureDishes_[indice_] ->addNutrient(nutrient);
 }
 
-bool Laboratory::contains(const CircularBoundary& autre) const{
-    return CultureDishes_[indice_] -> contains(autre);
+bool Laboratory::contains(size_t index, const CircularBoundary& autre) const{
+    return CultureDishes_[index] -> contains(autre);
 }

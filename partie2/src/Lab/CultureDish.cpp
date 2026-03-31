@@ -26,9 +26,9 @@ bool CultureDish::addNutrient(Nutrient* nutrient){
         Nutrientsource_.push_back(nutrient);
            return true;
     }else{
-            return false;
 }
 
+    return false;
 
 }
 void CultureDish::update(sf::Time dt){
@@ -50,9 +50,13 @@ void CultureDish::drawOn(sf::RenderTarget& targetWindow){
 void CultureDish::changeTemperature(double delta){
     temperature_ += delta;
 }
+void CultureDish::resetTemperature(){
+    temperature_ = getAppConfig()["culture dish"]["temperature"]["default"].toDouble();
+}
 double CultureDish::getTemperature() const{
     return temperature_;
 }
+
 void CultureDish::reset(){
     for (auto& bacterie : Bacteriums_){
         delete bacterie;

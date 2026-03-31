@@ -21,7 +21,9 @@ public:
     void update(sf::Time);
     void drawOn(sf::RenderTarget&);  //pas encore sur du void
     void changeTemperature(double delta);
+    void resetTemperature();
     double getTemperature() const;
+
     void reset();
 
 
