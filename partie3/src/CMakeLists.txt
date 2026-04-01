@@ -175,5 +175,5 @@ find_sfml()
 #add_executable(monotrichousTest ${TEST_DIR}/GraphicalTests/MonotrichousTest.cpp ${SOURCES_GFX})
 #configure_sfml_executable(monotrichousTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
-#add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
-#configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
+configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
