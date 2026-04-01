@@ -37,11 +37,15 @@
 *************************************************
 ##31.03 (mardi)
 
-- Fin du codage de la classe Nutrient.
+- Continuation du codage de la classe Nutrient.
+
+- Problème avec les nutriments qui arrête d'évoluer lorsqu'on change de CultureDish.
 
 - Finalisation de la partie 2 de manière générale.
 
 - Résolution de cas limites liés à la croissance des bactéries en fonction de SA boîte de Petri et non l'instance courante.
+
+- Compréhension améliorée des fonctionnalités et rôles de getAppConfig() et JSON, cela a pris un peu de temps.
 
 - Réponses aux questions liées à la partie 2.
 
