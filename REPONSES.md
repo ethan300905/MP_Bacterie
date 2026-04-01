@@ -63,4 +63,5 @@
 
 - Vérification géométrique : Enfin, la classe CultureDish appelle sa propre fonction contains (héritée de CircularBoundary), permettant de déterminer si l'objet se situe bien à l'intérieur des limites circulaires.
 
-
+*************************************************
+##Q3.1

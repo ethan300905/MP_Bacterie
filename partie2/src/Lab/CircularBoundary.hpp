@@ -18,13 +18,11 @@ class CircularBoundary
 {
 public:
 
-    CircularBoundary(Vec2d, double);
-    CircularBoundary(const CircularBoundary&) = default;
-    CircularBoundary& operator=(const CircularBoundary&) = default;
+
     const Vec2d& getPosition() const;
-    void setPosition(Vec2d);
+
     double getRadius() const;
-    void setRadius(double);
+
     void move(const Vec2d&);
     bool contains(const CircularBoundary&) const;
     bool isColliding(const CircularBoundary&) const;
@@ -33,8 +31,12 @@ public:
     bool operator>(const CircularBoundary&) const;
     bool operator&(const CircularBoundary&) const;
     bool operator>(const Vec2d&) const;
-
-
+protected :
+    CircularBoundary(Vec2d, double);
+    CircularBoundary(const CircularBoundary&) = default;
+    CircularBoundary& operator=(const CircularBoundary&) = default;
+    void setPosition(Vec2d);
+    void setRadius(double);
 private:
     Vec2d position_;
     double rayon_;
