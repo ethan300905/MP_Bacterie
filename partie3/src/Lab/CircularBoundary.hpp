@@ -30,6 +30,7 @@ public:
 
     bool operator>(const CircularBoundary&) const;
     bool operator&(const CircularBoundary&) const;
+
     bool operator>(const Vec2d&) const;
 protected :
     CircularBoundary(Vec2d, double);
