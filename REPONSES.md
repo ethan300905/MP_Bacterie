@@ -65,3 +65,19 @@
 
 *************************************************
 ##Q3.1
+
+- Il est une bonne idée de faire hériter CultureDish de Drawable car c'est une classe qu'on dessine sur l'écran et de Updtable pour déclencher la mise à jour de ses listes internes. 
+- Pour Nutrient il est une bonne idée de faire hériter de Drawable et de Updatable car non seulement on affiche les nutrients à l'écran mais aussi ils évoluent dans le temps. 
+- Cette approche permet de traiter des objets de types différents de manière uniforme via le polymorphisme, ce qui simplifie la gestion globale du simulateur tout en facilitant l'ajout futur de nouvelles entités sans modifier le code existant.
+*************************************************
+##Q3.2
+
+- On fait alors usage du mot clé override permettant au classes filles de les redefinir plus tard. 
+*************************************************
+##Q3.3
+
+- La méthode GetConfig doit-être définie comme virtuelle pure dans la classe Nutrient pour qu'elle puisse être redefinie dans les sous-classes A et B. 
+*************************************************
+##Q3.4
+
+- 

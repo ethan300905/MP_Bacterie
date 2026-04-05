@@ -160,11 +160,11 @@ find_sfml()
 #add_executable(mutableTest ${TEST_DIR}/UnitTests/MutablePropertyTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
 #configure_sfml_executable(mutableTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
-add_executable(circularBoundaryTest ${TEST_DIR}/UnitTests/CircularBoundaryTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
-configure_sfml_executable(circularBoundaryTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+#add_executable(circularBoundaryTest ${TEST_DIR}/UnitTests/CircularBoundaryTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
+#configure_sfml_executable(circularBoundaryTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
-add_executable(vec2dTest ${TEST_DIR}/UnitTests/Vec2dTest.cpp ${CACHE_SOURCES})
-configure_sfml_executable(vec2dTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+#add_executable(vec2dTest ${TEST_DIR}/UnitTests/Vec2dTest.cpp ${CACHE_SOURCES})
+#configure_sfml_executable(vec2dTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
 # Graphical tests
 # UCOMMENT THE RELEVANT TARGETS WHEN READY TO TEST
@@ -175,5 +175,5 @@ configure_sfml_executable(vec2dTest "${sfml_include_dirs}" "${sfml_cxx_standard}
 #add_executable(monotrichousTest ${TEST_DIR}/GraphicalTests/MonotrichousTest.cpp ${SOURCES_GFX})
 #configure_sfml_executable(monotrichousTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
-#add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
-#configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
+configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")

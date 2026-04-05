@@ -4,19 +4,21 @@
 #include <../Utility/Vec2d.hpp>
 #include "../utility/Types.hpp"
 #include <SFML/Graphics.hpp>
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
 
-class Nutrient:public CircularBoundary
+class Nutrient:public CircularBoundary, public Drawable, public Updatable
 
 {
 public:
     Nutrient(const Quantity&, Vec2d);
     Quantity takeQuantity(Quantity);
     void setQuantity(Quantity);
-    void drawOn(sf::RenderTarget& target) const;
-    j::Value const& getConfig() const;
+    void drawOn(sf::RenderTarget& target) const override;
+    virtual j::Value const& getConfig() const = 0;
     Quantity getQuantity() const;
-    void update(sf::Time);
+    void update(sf::Time) override;
 
 private:
     Quantity quantityNutrient_;

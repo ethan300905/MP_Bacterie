@@ -17,7 +17,7 @@
 class CircularBoundary
 {
 public:
-
+    virtual ~CircularBoundary() = default;
 
     const Vec2d& getPosition() const;
 

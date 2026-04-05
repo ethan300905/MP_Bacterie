@@ -37,7 +37,7 @@ void CultureDish::update(sf::Time dt){
     }
 
 }
-void CultureDish::drawOn(sf::RenderTarget& targetWindow){
+void CultureDish::drawOn(sf::RenderTarget& targetWindow) const{
     sf:: Color color(255, 255, 255, 100);
     auto border = buildAnnulus(getPosition(), getRadius(), color, 25);
     targetWindow.draw(border);
@@ -66,12 +66,10 @@ double CultureDish::getTemperature() const{
 
 void CultureDish::reset(){
     for (auto& bacterie : Bacteriums_){
-        delete bacterie;
-        bacterie = nullptr;
+        delete bacterie;      
     }
     for (auto& nutrient : Nutrientsource_){
         delete nutrient;
-        nutrient = nullptr;
     }
     Nutrientsource_.clear();
     Bacteriums_.clear();

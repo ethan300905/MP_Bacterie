@@ -4,9 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include "CircularBoundary.hpp"
 #include "Utility/Vec2d.hpp"
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
 
-class CultureDish:public CircularBoundary
+
+class CultureDish:public CircularBoundary, public Drawable, public Updatable
 {
 public:
     CultureDish(Vec2d, double);
@@ -18,8 +21,8 @@ public:
     //le type bool permet de savoir si la bactérie ou le nutriment a bien été ajouté
     bool addBacterium(Bacterium*);
     bool addNutrient(Nutrient*);
-    void update(sf::Time);
-    void drawOn(sf::RenderTarget&);  //pas encore sur du void
+    void update(sf::Time) override;
+    void drawOn(sf::RenderTarget&) const override;
     void changeTemperature(double delta);
     void resetTemperature();
     double getTemperature() const;
