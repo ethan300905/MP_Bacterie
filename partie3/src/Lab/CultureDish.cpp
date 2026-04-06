@@ -20,17 +20,14 @@ bool CultureDish::addBacterium(Bacterium*){
 
 }
 bool CultureDish::addNutrient(Nutrient* nutrient){
-
-    if((this->contains(*nutrient))){
-
+    if(this->contains(*nutrient)) {
         Nutrientsource_.push_back(nutrient);
-           return true;
-    }else{
-}
-
+        return true;
+    }
     return false;
-
 }
+
+
 void CultureDish::update(sf::Time dt){
     for(auto& Nutrient : Nutrientsource_){
         Nutrient-> update(dt);
