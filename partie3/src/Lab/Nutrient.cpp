@@ -4,6 +4,7 @@
 #include "Utility/Utility.hpp"
 
 Nutrient::Nutrient(const Quantity& quantity, Vec2d positionNutrient)
+    // Conventions asked us to use quantity as radius
     : CircularBoundary(positionNutrient,quantity),
       quantityNutrient_(quantity)
 
