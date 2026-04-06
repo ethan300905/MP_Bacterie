@@ -80,4 +80,19 @@
 *************************************************
 ##Q3.4
 
-- 
+- Grâce au polymorphisme et donc à la résolution dynamique des liens. Etant donné que GetConfig est une méthode virtuelle pure, elle est redéfinie dans les sous-classes NutrientA et NutrientB. 
+- Le GetConfig appelée dépend de celui qui l'appelle et donc permet de différencier les deux nutriments. 
+*************************************************
+##Q3.5
+
+- Modification : Ajouter un attribut privé de type NutrientGenerator à la classe Laboratory.
+
+- Méthode : Appeler la méthode update(dt) de cet attribut à l'intérieur de la méthode Laboratory::update(sf::Time dt).
+*************************************************
+##Q3.6
+
+- On a du ajouter dans le JSON sous : ["generator"]["nutrient"]["max"] un nouveau paramètre de la simulation.
+- Ensuite dans la méthode qui ajoute les nutrients : Laboratory::addNutrient(), on effectue une vérification si le nombre de Nutrients dans le CultureDish courante est inférieure au nouveau paramètre. 
+- On a donc aussi ajouter un getter dans CultureDish qui permet de récuperer le nombre de Nutriments il y a dans son instance. 
+- Le choix de mettre la vérification dans Laboratory::addNutrient() permet de centraliser le code et d'effectuer la vérification qu'une seule fois
+- Cela nécessite en contre partie de la centralisation un delete car une nouvelle instance de Nutrient est crée sans qu'elle puisse être ajoutée à la CultureDish. 

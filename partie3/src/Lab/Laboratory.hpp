@@ -1,6 +1,7 @@
 #pragma once
 #include "CultureDish.hpp"
 #include<vector>
+#include "NutrientGenerator.hpp"
 
 
 
@@ -26,6 +27,7 @@ public:
 private:
     std::vector<CultureDish*> CultureDishes_;
     size_t indice_;
+    NutrientGenerator nutrientgenerator;
 
 };
 

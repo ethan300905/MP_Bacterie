@@ -15,6 +15,7 @@ Laboratory::Laboratory()
         CultureDishes_.push_back(new CultureDish(center, rayon));
     }
 
+
 }
 
 void Laboratory::nextDish() {
@@ -55,6 +56,7 @@ double Laboratory::getTemperature(size_t index) const {
 void Laboratory::reset(){
     CultureDishes_[indice_]->reset();
     resetControls();
+    nutrientgenerator.reset();
 }
 void Laboratory::resetControls(){
     CultureDishes_[indice_] -> resetTemperature();
@@ -67,9 +69,16 @@ void Laboratory::update(sf::Time time){
     for(auto& dish:CultureDishes_){
         dish -> update(time);
     }
+    nutrientgenerator.update(time);
 }
 void Laboratory::addNutrient(Nutrient* nutrient){
-    CultureDishes_[indice_] ->addNutrient(nutrient);
+    if(CultureDishes_[indice_]->getNumberNutrients() < getAppConfig()["generator"]["nutrient"]["max"].toDouble()){
+        CultureDishes_[indice_] ->addNutrient(nutrient);
+    }else{
+        delete nutrient;
+        nutrient = nullptr;
+    }
+
 }
 
 bool Laboratory::contains(size_t index, const CircularBoundary& autre) const{

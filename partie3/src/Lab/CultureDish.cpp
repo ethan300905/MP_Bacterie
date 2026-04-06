@@ -74,3 +74,8 @@ void CultureDish::reset(){
     Nutrientsource_.clear();
     Bacteriums_.clear();
 }
+
+
+size_t CultureDish::getNumberNutrients(){
+    return Nutrientsource_.size();
+}

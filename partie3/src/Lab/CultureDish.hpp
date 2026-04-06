@@ -28,7 +28,7 @@ public:
     double getTemperature() const;
 
     void reset();
-
+    size_t getNumberNutrients();
 
 private:
     std::vector<Bacterium*> Bacteriums_;
