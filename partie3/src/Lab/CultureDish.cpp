@@ -79,6 +79,6 @@ void CultureDish::reset(){
 }
 
 
-size_t CultureDish::getNumberNutrients(){
+size_t CultureDish::getNumberNutrients() const{
     return Nutrientsource_.size();
 }

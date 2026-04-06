@@ -76,7 +76,7 @@ void Nutrient::update(sf::Time dt){
     double maxTemp = getConfig()["growth"]["max temperature"].toDouble();
     Quantity maxQuantity = getConfig()["quantity"]["max"].toDouble();
 
-    if((minTemp <= getAppEnv().getTemperature(index_))&&( getAppEnv().getTemperature(index_)<= maxTemp) && (quantityNutrient_ <= maxQuantity*2) && (getAppEnv().contains(index_,*this))){
+    if(quantityNutrient_ > 0 && (minTemp <= getAppEnv().getTemperature(index_))&&( getAppEnv().getTemperature(index_)<= maxTemp) && (quantityNutrient_ <= maxQuantity*2) && (getAppEnv().contains(index_,*this))){
       quantityNutrient_ += growth;
       setQuantity(quantityNutrient_);
     }
