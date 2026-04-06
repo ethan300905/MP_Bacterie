@@ -32,7 +32,13 @@ void CultureDish::update(sf::Time dt){
     for(auto& Nutrient : Nutrientsource_){
         Nutrient-> update(dt);
     }
-
+// Remove and delete dead nutrients
+    for(int i = Nutrientsource_.size() - 1; i >= 0; --i){
+        if(Nutrientsource_[i]->getQuantity() <= 0){
+            delete Nutrientsource_[i];
+            Nutrientsource_.erase(Nutrientsource_.begin() + i);
+        }
+    }
 }
 void CultureDish::drawOn(sf::RenderTarget& targetWindow) const{
     sf:: Color color(255, 255, 255, 100);
