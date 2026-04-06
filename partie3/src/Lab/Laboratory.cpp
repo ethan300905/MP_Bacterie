@@ -73,7 +73,9 @@ void Laboratory::update(sf::Time time){
 }
 void Laboratory::addNutrient(Nutrient* nutrient){
     if(CultureDishes_[indice_]->getNumberNutrients() < getAppConfig()["generator"]["nutrient"]["max"].toDouble()){
-        CultureDishes_[indice_] ->addNutrient(nutrient);
+        if(!CultureDishes_[indice_]->addNutrient(nutrient)){
+            delete nutrient;
+        }
     }else{
         delete nutrient;
         nutrient = nullptr;
