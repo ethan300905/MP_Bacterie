@@ -7,8 +7,6 @@ class NutrientA : public Nutrient
 {
 public:
     NutrientA(const Quantity&, Vec2d);
-    //void update(sf::Time) override;
-    //void drawOn(sf::RenderTarget& target) const override;
     j::Value const& getConfig() const override;
 };
 
