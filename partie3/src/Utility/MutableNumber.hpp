@@ -1,20 +1,20 @@
 #pragma once
-#ifndef MUTABLENUMBER_HPP
-#define MUTABLENUMBER_HPP
+
 #include <Random/Random.hpp>
 
 class MutableNumber
 {
 public:
-    MutableNumber(double, double, double, bool, bool, double, double);
+    MutableNumber(double value, double mutationProba, double standardDeviation, bool isMax = false, double max=0.0, bool isMin=false, double min=0.0);
     MutableNumber(j::Value const&);
-    double getValue() const;
+    MutableNumber() = default;
+    double get() const;
     void setValue(double);
     void mutate();
-    MutableNumber probability(double , double , double);
-    MutableNumber probability(j::Value const&);
-    MutableNumber positive(double , double , double, bool , double );
-    MutableNumber positive(j::Value const&, bool, double);
+    static MutableNumber probability(double , double , double);
+    static MutableNumber probability(j::Value const&);
+    static MutableNumber positive(double , double , double, bool isMax= false, double max=0.0);
+    static MutableNumber positive(j::Value const&, bool isMax = false, double max=0.0);
 
 private:
 
@@ -30,4 +30,4 @@ private:
 
 };
 
-#endif // MUTABLENUMBER_HPP
+

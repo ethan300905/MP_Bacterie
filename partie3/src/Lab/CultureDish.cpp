@@ -45,12 +45,20 @@ void CultureDish::update(sf::Time dt){
     }
 
 // Remove and delete dead nutrients
-    for(int i = Nutrientsource_.size() - 1; i >= 0; --i){
+    for(size_t i(0); i < Nutrientsource_.size(); ++i){
         if(Nutrientsource_[i]->getQuantity() <= 0){
             delete Nutrientsource_[i];
-            Nutrientsource_.erase(Nutrientsource_.begin() + i);
+            Nutrientsource_[i] = nullptr;
         }
     }
+    Nutrientsource_.erase(std::remove(Nutrientsource_.begin(), Nutrientsource_.end(), nullptr), Nutrientsource_.end());
+    for(size_t i(0); i < Bacteriums_.size(); ++i){
+        if(Bacteriums_[i]->getEnergy() <= 0){
+            delete Bacteriums_[i];
+            Bacteriums_[i] = nullptr;
+        }
+    }
+    Bacteriums_.erase(std::remove(Bacteriums_.begin(), Bacteriums_.end(), nullptr), Bacteriums_.end());
 }
 void CultureDish::drawOn(sf::RenderTarget& targetWindow) const{
     sf:: Color color(255, 255, 255, 100);

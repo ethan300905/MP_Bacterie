@@ -77,7 +77,7 @@ void Laboratory::addNutrient(Nutrient* nutrient){
         delete nutrient;
     }
 }
-void Laboratory::addBacteria(Bacterium* bacteria){
+void Laboratory::addBacterium(Bacterium* bacteria){
 
     if(!CultureDishes_[indice_]->addBacterium(bacteria)){
         delete bacteria;

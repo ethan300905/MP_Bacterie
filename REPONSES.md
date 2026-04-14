@@ -138,10 +138,13 @@
 *************************************************
 ##Q3.15
 
-- Pour encapsuler la logique de consommation. Si on retournait un Nutriment*, la bactérie devrait gérer elle-même la modification du nutriment. 
+- Pour encapsuler la logique consommation. Si on retournait un Nutriment*, la bactérie devrait gérer elle-même la modification du nutriment. 
 - En faisant une méthode check..., on centralise la gestion des collisions et des effets (énergie/quantité) au même endroit.
+- La méthode à modifier est CultureDish::update(sf::Time dt). Elle doit désormais parcourir la collection des bactéries pour appeler leur propre méthode update, 
+- tout en gérant la suppression des individus morts afin de libérer la mémoire.
 *************************************************
 ##Q3.16
 
-- La méthode à modifier est CultureDish::update(sf::Time dt). Elle doit désormais parcourir la collection des bactéries pour appeler leur propre méthode update, 
-- tout en gérant la suppression des individus morts afin de libérer la mémoire.
+- Il faut modifier la méthode update dans la classe CultureDish car c'est cette classe qui a accès aux Nutrient et Bacterium. 
+- Il faut ajouter une boucle for qui itère sur chaque bactérie et nutriments et vérifie si leur quantité est plus grande que 0 ou non, dans le cas échéant,
+- il faut le supprimer correctement. 

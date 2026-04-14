@@ -11,7 +11,7 @@ class Bacterium: public CircularBoundary, public Drawable, public Updatable
 {
 public:
 
-    Bacterium(Vec2d, double, MutableColor, Vec2d, Quantity);
+    Bacterium(const Quantity&, const Vec2d&, Vec2d, const Quantity& , MutableColor);
     virtual ~Bacterium() = default;
 
     virtual void update(sf::Time) override;
@@ -22,10 +22,12 @@ public:
 
     // Utilitaire
     bool isDead() const;
+    void consumeEnergy(Quantity);
 
     // Getters
     bool getIsAbstinence() const;
     sf::Time TimeSinceLastMeal() const;
+    Quantity getEnergy() const;
 
     // Setters
     void resetTimeSinceLastMeal();
@@ -33,10 +35,10 @@ public:
 
 private:
 
+    Quantity energy_;
     MutableColor color_;
     Vec2d direction_;
     bool isAbstinent_;
-    Quantity energy_;
     std::map<std::string, MutableNumber> parameters_;
     size_t index_;
     sf::Time timeSinceLastMeal_;

@@ -24,7 +24,7 @@ public:
     void drawOn(sf::RenderTarget&) const override;
     void update(sf::Time) override;
     void addNutrient(Nutrient*);
-    void addBacteria(Bacterium* );
+    void addBacterium(Bacterium* );
     bool contains(size_t, const CircularBoundary&) const;
     bool doesCollideWithDish(size_t, const CircularBoundary&) const;
     void checkCollidingNutriment(size_t, Bacterium*) const;

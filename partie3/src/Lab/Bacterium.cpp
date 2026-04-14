@@ -2,10 +2,10 @@
 #include "Utility/Utility.hpp"
 #include "Application.hpp"
 
-Bacterium::Bacterium(Vec2d position, double rayon , MutableColor color, Vec2d direction, Quantity energy)
+Bacterium::Bacterium(const Quantity& energy, const Vec2d& position, Vec2d direction, const Quantity& rayon , MutableColor color)
 // parameters_() appelle le constructeur par défaut de map et l'initialise donc à vide, isAbstinent_ est initialisée par défaut à false.
-   : CircularBoundary(position,rayon), color_(color), direction_(direction),
-     isAbstinent_(false), energy_(energy), parameters_(), timeSinceLastMeal_(sf::Time::Zero)
+   : CircularBoundary(position,rayon),energy_(energy),  color_(color), direction_(direction),
+     isAbstinent_(false), parameters_(), timeSinceLastMeal_(sf::Time::Zero)
 {
     index_=getAppEnv().getCurrentDishId();
 }
@@ -54,4 +54,11 @@ void Bacterium::resetTimeSinceLastMeal(){
 
 void Bacterium::addEnergy(Quantity energy){
     energy_ += energy;
+}
+
+Quantity Bacterium::getEnergy() const {
+    return energy_;
+}
+void Bacterium::consumeEnergy(Quantity qt){
+    energy_ -= qt;
 }

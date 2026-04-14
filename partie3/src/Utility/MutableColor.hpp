@@ -1,13 +1,16 @@
 #pragma once
-#ifndef MUTABLECOLOR_HPP
-#define MUTABLECOLOR_HPP
-
+#include <array>
+#include "MutableNumber.hpp"
+#include "Utility/Utility.hpp"
 
 class MutableColor
 {
 public:
-    MutableColor();
+    MutableColor(j::Value const& config);
+    void mutate();
+    sf::Color getColor();
+private:
+    std::array<MutableNumber,4> RGBA_;
 
 };
 
-#endif // MUTABLECOLOR_HPP

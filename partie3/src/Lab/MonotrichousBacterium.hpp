@@ -4,7 +4,7 @@
 class MonotrichousBacterium: public Bacterium
 {
 public:
-    MonotrichousBacterium(Vec2d, double, MutableColor, Vec2d, Quantity);
+    MonotrichousBacterium(const Quantity&, const Vec2d&, Vec2d, const Quantity& , MutableColor);
     j::Value const& getConfig() const override;
 };
 

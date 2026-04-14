@@ -1,8 +1,8 @@
 #include "MonotrichousBacterium.hpp"
 #include "Application.hpp"
 
-MonotrichousBacterium::MonotrichousBacterium(Vec2d position, double rayon , MutableColor color, Vec2d direction, Quantity energy)
-    : Bacterium(position, rayon, color, direction, energy)
+MonotrichousBacterium::MonotrichousBacterium(const Quantity& energy, const Vec2d& position, Vec2d direction, const Quantity& rayon , MutableColor color)
+    : Bacterium(energy, position, direction, rayon, color)
 {
 
 }

@@ -1,7 +1,7 @@
 #include "MutableNumber.hpp"
 
-MutableNumber::MutableNumber(double value, double mutationProba, double standardDeviation, bool isMax = false, bool isMin = false, double max = 0, double min = 0)
-    :
+MutableNumber::MutableNumber(double value, double mutationProba, double standardDeviation, bool isMax, double max, bool isMin, double min)
+    : value_(0.0),
       mutationProba_(mutationProba),
       standardDeviation_(standardDeviation),
       isMax_(isMax),
@@ -18,8 +18,8 @@ MutableNumber::MutableNumber(double value, double mutationProba, double standard
 MutableNumber::MutableNumber(j::Value const& config)  // Surcharge de constructeurs
     :     mutationProba_ (config["rate"].toDouble()),
       standardDeviation_ (config["sigma"].toDouble()),
-      isMax_ (config["clamp max"].toDouble()),
-      isMin_  (config["clamp min"].toDouble()),
+      isMax_ (config["clamp max"].toBool()), // toBool et pas toDouble?
+      isMin_  (config["clamp min"].toBool()), // toBool et pas toDouble?
       max_ (config["max"].toDouble()),
       min_  (config["min"].toDouble())
 {
@@ -29,7 +29,7 @@ MutableNumber::MutableNumber(j::Value const& config)  // Surcharge de constructe
     }
 }
 
-double MutableNumber::getValue() const {
+double MutableNumber::get() const {
 
     return value_;
 }
@@ -37,10 +37,11 @@ double MutableNumber::getValue() const {
 void MutableNumber::setValue(double value){
     value_ = clamp(value);
 }
-
+// Erreur fallait ajouter value_ + ... ???
 void MutableNumber::mutate(){
     if(bernoulli(mutationProba_) == 1){
-        setValue(normal(0,standardDeviation_ * standardDeviation_));
+        double deviation = normal(0,standardDeviation_ * standardDeviation_);
+        setValue(value_ + deviation);
     }
 }
 
@@ -60,19 +61,22 @@ double MutableNumber::clamp(double value) const{  // sert à adapter la valeur s
 
   // UTILISER Static???
 
-MutableNumber probability(double initialValue , double mutationProbability, double sigma){
-    return MutableNumber(initialValue, mutationProbability, sigma, true, true, 1,0);
+MutableNumber MutableNumber::probability(double initialValue , double mutationProbability, double sigma){
+    return MutableNumber(initialValue, mutationProbability, sigma, true, true, 1.0 ,0.0);
 }
-MutableNumber probability(j::Value const& config){
+MutableNumber MutableNumber::probability(j::Value const& config){
     return probability(config["initial"].toDouble(),config["rate"].toDouble(), config["sigma"].toDouble());
 }
-MutableNumber positive(double initialValue, double mutationProbability, double sigma, bool isMax = false, double max = 0){
-    return MutableNumber(initialValue, mutationProbability, sigma, isMax, true , max, 0);
+MutableNumber MutableNumber::positive(double initialValue, double mutationProbability, double sigma, bool isMax, double max){
+    return MutableNumber(initialValue, mutationProbability, sigma, isMax, true , max, 0.0);
 }
-MutableNumber positive(j::Value const& config, bool isMax = false, double max = 0){
-    return positive(config["initial"].toDouble(),config["rate"].toDouble(), config["sigma"].toDouble());
-}
+MutableNumber MutableNumber::positive(j::Value const& config, bool isMax, double max){
+    double initial = config["initial"].toDouble();
+    double rate    = config["rate"].toDouble();
+    double sigma   = config["sigma"].toDouble();
 
+    return MutableNumber::positive(initial, rate, sigma, isMax, max);}
+//                                                                                                        ^     ^ fallait les donner en param.
 
 
 
