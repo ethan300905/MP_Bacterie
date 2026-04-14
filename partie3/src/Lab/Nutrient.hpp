@@ -15,10 +15,10 @@ public:
     Nutrient(const Quantity&, Vec2d);
     Quantity takeQuantity(Quantity);
     void setQuantity(Quantity);
-    void drawOn(sf::RenderTarget& target) const override;
+    virtual void drawOn(sf::RenderTarget& target) const override;
     virtual j::Value const& getConfig() const = 0;
     Quantity getQuantity() const;
-    void update(sf::Time) override;
+    virtual void update(sf::Time) override;
 
 private:
     Quantity quantityNutrient_;

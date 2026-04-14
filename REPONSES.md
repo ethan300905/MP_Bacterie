@@ -72,11 +72,12 @@
 *************************************************
 ##Q3.2
 
-- On fait alors usage du mot clé override permettant au classes filles de les redefinir plus tard. 
+- On définit les méthodes drawOn et uptdate comme virtuelles afin de pouvoir les redéfinir dans leurs classes filles respectives.
 *************************************************
 ##Q3.3
 
 - La méthode GetConfig doit-être définie comme virtuelle pure dans la classe Nutrient pour qu'elle puisse être redefinie dans les sous-classes A et B. 
+-La classe Nutrient devient donc une classe abstraite car on ne va plus instancier de nutriments, on va maintenant avoir uniquement des Nutrients A ou B.
 *************************************************
 ##Q3.4
 
@@ -92,7 +93,4 @@
 ##Q3.6
 
 - On a du ajouter dans le JSON sous : ["generator"]["nutrient"]["max"] un nouveau paramètre de la simulation.
-- Ensuite dans la méthode qui ajoute les nutrients : Laboratory::addNutrient(), on effectue une vérification si le nombre de Nutrients dans le CultureDish courante est inférieure au nouveau paramètre. 
-- On a donc aussi ajouter un getter dans CultureDish qui permet de récuperer le nombre de Nutriments il y a dans son instance. 
-- Le choix de mettre la vérification dans Laboratory::addNutrient() permet de centraliser le code et d'effectuer la vérification qu'une seule fois
-- Cela nécessite en contre partie de la centralisation un delete car une nouvelle instance de Nutrient est crée sans qu'elle puisse être ajoutée à la CultureDish. 
+- Dans la méthode addNutrient de CultureDish, on vérifie la quantité de nutrients présents avant d'en ajouter un nouveau.

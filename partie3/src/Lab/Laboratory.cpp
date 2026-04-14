@@ -72,15 +72,11 @@ void Laboratory::update(sf::Time time){
     nutrientgenerator.update(time);
 }
 void Laboratory::addNutrient(Nutrient* nutrient){
-    if(CultureDishes_[indice_]->getNumberNutrients() < getAppConfig()["generator"]["nutrient"]["max"].toDouble()){
-        if(!CultureDishes_[indice_]->addNutrient(nutrient)){
-            delete nutrient;
-        }
-    }else{
-        delete nutrient;
-        nutrient = nullptr;
-    }
 
+    if(!CultureDishes_[indice_]->addNutrient(nutrient)){
+        delete nutrient;
+
+    }
 }
 
 bool Laboratory::contains(size_t index, const CircularBoundary& autre) const{

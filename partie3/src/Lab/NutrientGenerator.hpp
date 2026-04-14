@@ -6,6 +6,8 @@
 #include "NutrientB.hpp"
 #include<vector>
 #include <Interface/Updatable.hpp>
+
+
 class NutrientGenerator: public Updatable
 {
 public:

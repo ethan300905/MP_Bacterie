@@ -60,12 +60,7 @@ void Nutrient::drawOn(sf::RenderTarget& target) const{
         target.draw(text);
     }
 }
-/*
-j::Value const& Nutrient::getConfig() const{
 
-    return getAppConfig()["nutrients"];
-}
-*/
 
 void Nutrient::update(sf::Time dt){
 

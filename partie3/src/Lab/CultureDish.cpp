@@ -22,7 +22,7 @@ bool CultureDish::addBacterium(Bacterium*){
 
 }
 bool CultureDish::addNutrient(Nutrient* nutrient){
-    if(this->contains(*nutrient)) {
+    if(this->contains(*nutrient) && (Nutrientsource_.size() < getAppConfig()["generator"]["nutrient"]["max"].toDouble())) {
         Nutrientsource_.push_back(nutrient);
         return true;
     }
@@ -78,9 +78,4 @@ void CultureDish::reset(){
     }
     Nutrientsource_.clear();
     Bacteriums_.clear();
-}
-
-
-size_t CultureDish::getNumberNutrients() const{
-    return Nutrientsource_.size();
 }
