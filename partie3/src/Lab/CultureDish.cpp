@@ -18,8 +18,12 @@ CultureDish::~CultureDish(){
 
 //(méthode)faire évoluer les bactéries ici:
 //le type bool permet de savoir si la bactérie ou le nutriment a bien été ajouté
-bool CultureDish::addBacterium(Bacterium*){
-
+bool CultureDish::addBacterium(Bacterium* bacteria){
+    if(this->contains(*bacteria)) {
+        Bacteriums_.push_back(bacteria);
+        return true;
+    }
+    return false;
 }
 bool CultureDish::addNutrient(Nutrient* nutrient){
     if(this->contains(*nutrient) && (Nutrientsource_.size() < getAppConfig()["generator"]["nutrient"]["max"].toDouble())) {
@@ -31,9 +35,15 @@ bool CultureDish::addNutrient(Nutrient* nutrient){
 
 
 void CultureDish::update(sf::Time dt){
+
     for(auto& Nutrient : Nutrientsource_){
         Nutrient-> update(dt);
     }
+
+    for(auto& Bacteria : Bacteriums_){
+        Bacteria-> update(dt);
+    }
+
 // Remove and delete dead nutrients
     for(int i = Nutrientsource_.size() - 1; i >= 0; --i){
         if(Nutrientsource_[i]->getQuantity() <= 0){
@@ -49,7 +59,10 @@ void CultureDish::drawOn(sf::RenderTarget& targetWindow) const{
 
     for ( auto const Nutrient : Nutrientsource_){
         Nutrient ->drawOn(targetWindow);
-    }  // à completer pour qu'il dessine les bacteries
+    }
+    for ( auto const Bacteria : Bacteriums_){
+        Bacteria ->drawOn(targetWindow);
+    }
 }
 
 void CultureDish::changeTemperature(double delta){

@@ -1,5 +1,4 @@
-#ifndef NUTRIENTGENERATOR_HPP
-#define NUTRIENTGENERATOR_HPP
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <Random/Random.hpp>
 #include "NutrientA.hpp"
@@ -20,4 +19,3 @@ private:
 
 };
 
-#endif // NUTRIENTGENERATOR_HPP

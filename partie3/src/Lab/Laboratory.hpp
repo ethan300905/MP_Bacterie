@@ -24,6 +24,7 @@ public:
     void drawOn(sf::RenderTarget&) const override;
     void update(sf::Time) override;
     void addNutrient(Nutrient*);
+    void addBacteria(Bacterium* );
     bool contains(size_t, const CircularBoundary&) const;
 private:
     std::vector<CultureDish*> CultureDishes_;

@@ -94,3 +94,36 @@
 
 - On a du ajouter dans le JSON sous : ["generator"]["nutrient"]["max"] un nouveau paramètre de la simulation.
 - Dans la méthode addNutrient de CultureDish, on vérifie la quantité de nutrients présents avant d'en ajouter un nouveau.
+*************************************************
+##Q3.7
+
+
+*************************************************
+##Q3.8
+
+
+*************************************************
+##Q3.9
+
+- Classe : On propose que la classe soit abstraite car son comportement de déplacement dépend du type de la bactérie
+- Héritage : On veut que Bacterium hérite de CircularBoundary car les bactéries sont des corps circulaires, de Updatable et Drawable car les bactéries doivent être affiché à l'écran et sont misent à jour dans le temps
+- Attribut : La classe Bacterium possède les attributs suivants : MutableColor color_; Vec2d direction_; bool abstinence_; Quantity energy_; std::map<std::string, MutableNumber> mutables_; permettant de modéliser toutes les caractéristiques de la bactérie
+- Méthodes : La classe aura une méthode move, update, drawOn, un constructeur qui initialise tout les paramètres (notamment isAbsinent à false par défaut), une méthode vérifiant l'état de vie de la bactérie et un destructeur. 
+*************************************************
+##Q3.10
+
+- Les méthodes drawOn et update peuvent être virtuelle permettant la redéfiniton par les sous-classes car ces méthodes possède une logique de base commune, mais spécialisable : si certaine bactérie possède des particularités qui ne sont pas gérées par Bacterium.
+- La méthode move est virtuelle pure car nous ne savons pas défenir cette méthode de façon générique à ce niveau là.
+- Comme la classe contient des méthodes virtuelles, il est judicieux de mettre le desctructeur comme virtual. 
+*************************************************
+##Q3.11
+
+- Oui selon nous la méthode j::Value GetConfig() est une méthode virtuelle pure pour qu'elle puisse être redefinie dans les sous-classes. 
+*************************************************
+##Q3.12
+
+- En appelant la fonction getColor() de MutableColor. ?!?!?!?!? A COMPLETER
+*************************************************
+##Q3.13
+
+- Non le fait que la méthode move(dt) ne soit pas encore définie ne pose aucun problème car cette une méthode virtuelle et sera définie plus tard par les sous-classes.

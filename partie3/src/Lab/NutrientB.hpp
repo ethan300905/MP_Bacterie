@@ -1,5 +1,4 @@
-#ifndef NUTRIENTB_HPP
-#define NUTRIENTB_HPP
+#pragma once
 #include "Nutrient.hpp"
 
 
@@ -11,4 +10,4 @@ public:
     j::Value const& getConfig() const override;
 };
 
-#endif // NUTRIENTB_HPP
+
