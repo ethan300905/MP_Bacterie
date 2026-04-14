@@ -6,11 +6,15 @@
 class MutableNumber
 {
 public:
-    MutableNumber(double, double, double, double, double, bool, bool);
+    MutableNumber(double, double, double, bool, bool, double, double);
     MutableNumber(j::Value const&);
     double getValue() const;
     void setValue(double);
     void mutate();
+    MutableNumber probability(double , double , double);
+    MutableNumber probability(j::Value const&);
+    MutableNumber positive(double , double , double, bool , double );
+    MutableNumber positive(j::Value const&, bool, double);
 
 private:
 
@@ -18,11 +22,12 @@ private:
 
     double value_;
     double mutationProba_;
+    double standardDeviation_;
     bool isMax_;
     bool isMin_;
     double max_;
     double min_;
-    double standardDeviation_;
+
 };
 
 #endif // MUTABLENUMBER_HPP

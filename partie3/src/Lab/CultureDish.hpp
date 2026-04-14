@@ -26,6 +26,7 @@ public:
     void changeTemperature(double delta);
     void resetTemperature();
     double getTemperature() const;
+    void checkCollidingNutriment(Bacterium*) const;
 
     void reset();
 

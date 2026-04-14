@@ -20,7 +20,16 @@ public:
     virtual void move(sf::Time) const = 0;
     virtual j::Value const& getConfig() const = 0;
 
+    // Utilitaire
     bool isDead() const;
+
+    // Getters
+    bool getIsAbstinence() const;
+    sf::Time TimeSinceLastMeal() const;
+
+    // Setters
+    void resetTimeSinceLastMeal();
+    void addEnergy(Quantity);
 
 private:
 
@@ -29,6 +38,9 @@ private:
     bool isAbstinent_;
     Quantity energy_;
     std::map<std::string, MutableNumber> parameters_;
+    size_t index_;
+    sf::Time timeSinceLastMeal_;
+
 };
 
 

@@ -87,3 +87,11 @@ void Laboratory::addBacteria(Bacterium* bacteria){
 bool Laboratory::contains(size_t index, const CircularBoundary& autre) const{
     return CultureDishes_[index] -> contains(autre);
 }
+
+bool Laboratory::doesCollideWithDish(size_t index, const CircularBoundary& body) const{
+    return CultureDishes_[index] -> isColliding(body);
+}
+
+void Laboratory::checkCollidingNutriment(size_t index, Bacterium* bacterium) const{
+    CultureDishes_[index] -> checkCollidingNutriment(bacterium);
+}

@@ -97,7 +97,7 @@
 *************************************************
 ##Q3.7
 
--On a créé une fonction clamp qui permet de vérifier si les valeurs sont dans les bornes et qui les adaptent si besoin
+- On a créé une fonction clamp qui permet de vérifier si les valeurs sont dans les bornes et qui les adaptent si besoin
 - La fonction setValue appelle donc la fonction clamp au moment d'initialiser la valeur 
 - toutes les autres fonctions qui modifient la valeur appellent la fonction setValue, qui vérifie deja les bornes. Donc pas besoin de revérifier.
 
@@ -130,3 +130,18 @@
 ##Q3.13
 
 - Non le fait que la méthode move(dt) ne soit pas encore définie ne pose aucun problème car cette une méthode virtuelle et sera définie plus tard par les sous-classes.
+*************************************************
+##Q3.14
+
+- Pour y avoir accès, on passe par le Laboratoire grâce à getAppEnv() et le laboratoire appelle checkCollidingNutriment sur un de ces CultureDish
+- Depuis CultureDish on a bien accès au nutriments. 
+*************************************************
+##Q3.15
+
+- Pour encapsuler la logique de consommation. Si on retournait un Nutriment*, la bactérie devrait gérer elle-même la modification du nutriment. 
+- En faisant une méthode check..., on centralise la gestion des collisions et des effets (énergie/quantité) au même endroit.
+*************************************************
+##Q3.16
+
+- La méthode à modifier est CultureDish::update(sf::Time dt). Elle doit désormais parcourir la collection des bactéries pour appeler leur propre méthode update, 
+- tout en gérant la suppression des individus morts afin de libérer la mémoire.

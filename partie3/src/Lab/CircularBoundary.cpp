@@ -45,6 +45,8 @@ bool CircularBoundary::isColliding(const CircularBoundary& other) const{
     }
     return false;
 }
+
+
 bool CircularBoundary::contains(const Vec2d& point) const{
     if (distance(point, this->position_) <= this->rayon_){
         return true;

@@ -2,7 +2,7 @@
 #include "Application.hpp"
 #include "Utility/Utility.hpp"
 #include "Utility/Types.hpp"
-
+#include <algorithm>
 
 
 CultureDish::CultureDish(Vec2d position, double rayon)
@@ -91,4 +91,21 @@ void CultureDish::reset(){
     }
     Nutrientsource_.clear();
     Bacteriums_.clear();
+}
+
+
+void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
+    if (!bacteria -> getIsAbstinence()){
+        if(bacteria->TimeSinceLastMeal() > sf::seconds(getAppConfig()["meal"]["delay"].toDouble())){
+            for(auto& nutrient:Nutrientsource_){
+                if (nutrient->isColliding(*bacteria)){
+                    bacteria->resetTimeSinceLastMeal();
+                    Quantity amountEatable = getAppConfig()["meal"]["max"].toDouble();
+                    Quantity amountEaten = nutrient->takeQuantity(amountEatable);
+                    bacteria->addEnergy(amountEaten);
+                    return;
+                }
+            }
+        }
+    }
 }
