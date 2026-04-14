@@ -97,6 +97,9 @@
 *************************************************
 ##Q3.7
 
+-On a créé une fonction clamp qui permet de vérifier si les valeurs sont dans les bornes et qui les adaptent si besoin
+- La fonction setValue appelle donc la fonction clamp au moment d'initialiser la valeur 
+- toutes les autres fonctions qui modifient la valeur appellent la fonction setValue, qui vérifie deja les bornes. Donc pas besoin de revérifier.
 
 *************************************************
 ##Q3.8
