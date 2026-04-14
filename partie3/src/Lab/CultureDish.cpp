@@ -11,9 +11,11 @@ CultureDish::CultureDish(Vec2d position, double rayon)
 {
  temperature_ = getAppConfig()["culture dish"]["temperature"]["default"].toDouble();
 }
+
 CultureDish::~CultureDish(){
     reset();
 }
+
 //(méthode)faire évoluer les bactéries ici:
 //le type bool permet de savoir si la bactérie ou le nutriment a bien été ajouté
 bool CultureDish::addBacterium(Bacterium*){

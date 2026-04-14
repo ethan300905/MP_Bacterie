@@ -15,7 +15,7 @@ public:
     CultureDish(Vec2d, double);
     CultureDish(const CultureDish&) = delete;
     CultureDish& operator=(const CultureDish&) = delete;
-    ~CultureDish();
+    virtual ~CultureDish();
 
     //(méthode)faire évoluer les bactéries ici:
     //le type bool permet de savoir si la bactérie ou le nutriment a bien été ajouté

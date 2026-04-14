@@ -61,7 +61,7 @@ void Laboratory::reset(){
 void Laboratory::resetControls(){
     CultureDishes_[indice_] -> resetTemperature();
 }
-void Laboratory::drawOn(sf::RenderTarget& target){
+void Laboratory::drawOn(sf::RenderTarget& target) const{
     CultureDishes_[indice_] ->drawOn(target);
 }
 

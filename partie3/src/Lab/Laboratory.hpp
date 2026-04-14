@@ -2,10 +2,11 @@
 #include "CultureDish.hpp"
 #include<vector>
 #include "NutrientGenerator.hpp"
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
 
-
-class Laboratory
+class Laboratory:public Drawable, public Updatable
 {
 public:
     Laboratory();
@@ -20,8 +21,8 @@ public:
     double getTemperature(size_t) const;
     void reset();
     void resetControls();
-    void drawOn(sf::RenderTarget&);
-    void update(sf::Time);
+    void drawOn(sf::RenderTarget&) const override;
+    void update(sf::Time) override;
     void addNutrient(Nutrient*);
     bool contains(size_t, const CircularBoundary&) const;
 private:

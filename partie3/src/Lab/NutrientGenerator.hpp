@@ -5,11 +5,12 @@
 #include "NutrientA.hpp"
 #include "NutrientB.hpp"
 #include<vector>
-class NutrientGenerator
+#include <Interface/Updatable.hpp>
+class NutrientGenerator: public Updatable
 {
 public:
     NutrientGenerator();
-    void update(sf::Time);
+    void update(sf::Time) override;
     void reset();
 
 private:
