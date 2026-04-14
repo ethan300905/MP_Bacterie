@@ -32,3 +32,6 @@ void Bacterium::drawOn(sf::RenderTarget& target) const{
     }
 
 bool Bacterium::isDead() const { return (energy_ <= 0); }
+
+
+// Hola q tal
