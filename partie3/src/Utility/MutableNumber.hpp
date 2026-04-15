@@ -13,7 +13,7 @@ public:
     void mutate();
     static MutableNumber probability(double , double , double);
     static MutableNumber probability(j::Value const&);
-    static MutableNumber positive(double , double , double, bool isMax= false, double max=0.0);
+    static MutableNumber positive(double, double, double, bool isMax = false, double max = 0.0);
     static MutableNumber positive(j::Value const&, bool isMax = false, double max=0.0);
 
 private:

@@ -6,7 +6,7 @@
 class MutableColor
 {
 public:
-    MutableColor(j::Value const& config);
+    MutableColor(j::Value const&);
     void mutate();
     sf::Color getColor();
 private:
