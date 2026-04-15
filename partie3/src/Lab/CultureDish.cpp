@@ -104,11 +104,11 @@ void CultureDish::reset(){
 
 void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
     if (!bacteria -> getIsAbstinence()){
-        if(bacteria->TimeSinceLastMeal() > sf::seconds(getAppConfig()["meal"]["delay"].toDouble())){
+        if(bacteria->TimeSinceLastMeal() > sf::seconds(bacteria->getConfig()["meal"]["delay"].toDouble())){
             for(auto& nutrient:Nutrientsource_){
                 if (nutrient->isColliding(*bacteria)){
                     bacteria->resetTimeSinceLastMeal();
-                    Quantity amountEatable = getAppConfig()["meal"]["max"].toDouble();
+                    Quantity amountEatable = bacteria->getConfig()["meal"]["max"].toDouble();
                     Quantity amountEaten = nutrient->takeQuantity(amountEatable);
                     bacteria->addEnergy(amountEaten);
                     return;

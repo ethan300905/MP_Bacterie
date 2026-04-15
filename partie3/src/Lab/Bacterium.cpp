@@ -21,18 +21,16 @@ void Bacterium::update(sf::Time dt){
     getAppEnv().checkCollidingNutriment(index_, this);
 }
 void Bacterium::drawOn(sf::RenderTarget& target) const{
-    // A coder par Gab dans MutableColor : getColor() donnant une couleur reconnue par SFML de type sf::color
-    //color à enlever après c'est juste pour que sa fonctionne
-    sf:: Color color(255, 255, 255, 100);
-    auto const circle = buildCircle(getPosition(), getRadius(), color);
-    //                                                            ^ ici il faudra enlever color et mettre la fonction getColor() une fois codée
+
+
+    auto const circle = buildCircle(getPosition(), getRadius(), color_.MutableColor::getColor());
 
     target.draw(circle);
 
     if(isDebugOn()){
         Vec2d deplacement = Vec2d(0,-50);
-        int size =getRadius();
-        auto const text = buildText(std::to_string(size),getPosition()+deplacement,getAppFont(),15,sf::Color::Black,0);
+        int energy =getEnergy();
+        auto const text = buildText(std::to_string(energy),getPosition()+deplacement,getAppFont(),15,sf::Color::Black,0);
         target.draw(text);
     }
     }

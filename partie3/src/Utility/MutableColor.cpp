@@ -15,7 +15,7 @@ void MutableColor::mutate(){
     }
 }
 
-sf::Color MutableColor::getColor(){
+sf::Color MutableColor::getColor() const{
 #if SFML_VERSION_MAJOR >= 3
     return { static_cast<std::uint8_t>(mComponents[0].get() * 255),
              static_cast<std::uint8_t>(mComponents[1].get() * 255),

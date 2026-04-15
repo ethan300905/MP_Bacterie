@@ -17,7 +17,7 @@ public:
     virtual void update(sf::Time) override;
     virtual void drawOn(sf::RenderTarget&) const override;
 
-    virtual void move(sf::Time) const = 0;
+    virtual void move(sf::Time) = 0;
     virtual j::Value const& getConfig() const = 0;
 
     // Utilitaire

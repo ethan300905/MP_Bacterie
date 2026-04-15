@@ -8,7 +8,7 @@ class MutableColor
 public:
     MutableColor(j::Value const&);
     void mutate();
-    sf::Color getColor();
+    sf::Color getColor() const;
 private:
     std::array<MutableNumber,4> RGBA_;
 

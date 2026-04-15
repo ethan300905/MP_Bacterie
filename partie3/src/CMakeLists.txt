@@ -169,8 +169,8 @@ configure_sfml_executable(mutableTest "${sfml_include_dirs}" "${sfml_cxx_standar
 # Graphical tests
 # UCOMMENT THE RELEVANT TARGETS WHEN READY TO TEST
 # bacteriaTest 
-#add_executable(bacteriaTest ${TEST_DIR}/GraphicalTests/BacteriaTest.cpp ${SOURCES_GFX})
-#configure_sfml_executable(bacteriaTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+add_executable(bacteriaTest ${TEST_DIR}/GraphicalTests/BacteriaTest.cpp ${SOURCES_GFX})
+configure_sfml_executable(bacteriaTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
 #add_executable(monotrichousTest ${TEST_DIR}/GraphicalTests/MonotrichousTest.cpp ${SOURCES_GFX})
 #configure_sfml_executable(monotrichousTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
