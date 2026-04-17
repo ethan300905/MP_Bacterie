@@ -87,7 +87,7 @@
             "b" : {
                 "clamp max" : true,
                 "clamp min" : true,
-                "initial" : 1,
+                "initial" : 0.7,
                 "max" : 1,
                 "min" : 0,
                 "rate" : 0.95,
@@ -105,7 +105,7 @@
             "r" : {
                 "clamp max" : true,
                 "clamp min" : true,
-                "initial" : 0,
+                "initial" : 0.3,
                 "max" : 1,
                 "min" : 0,
                 "rate" : 0.8,

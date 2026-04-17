@@ -50,7 +50,7 @@ Quantity Nutrient::getQuantity() const{
 
 void Nutrient::drawOn(sf::RenderTarget& target) const{
     auto const& texture = getAppTexture(getConfig()["texture"].toString());
-    auto nutrientSprite = buildSprite(getPosition(),getRadius(), texture);
+    auto nutrientSprite = buildSprite(getPosition(),2*getRadius(), texture);
     target.draw(nutrientSprite);
 
     if(isDebugOn()){
