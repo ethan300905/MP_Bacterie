@@ -27,7 +27,7 @@ Vec2d MonotrichousBacterium::f(Vec2d position, Vec2d speed) const{
 
 Vec2d MonotrichousBacterium::getSpeedVector() const {
     // Utilise explicitement le getter pour être sûr de la valeur
-    return getDirection() * 5.0; 
+    return getDirection() * 50.0; 
 }
 
 void MonotrichousBacterium::move(sf::Time dt){
@@ -36,9 +36,8 @@ void MonotrichousBacterium::move(sf::Time dt){
     Vec2d currentSpeed = getSpeedVector();
     DiffEqResult nextState = stepDiffEq(currentPos, currentSpeed, dt, *this);
     Vec2d displacement = nextState.position - getPosition();
-    //if (displacement.lengthSquared() > 0.001) {
-        // On utilise le move de CircularBoundary avec le déplacement relatif
+    if (displacement.lengthSquared() > 0.001) {
         this->CircularBoundary::move(displacement);
-//}
-setDirection(nextState.speed.normalised());
 }
+setDirection(nextState.speed.normalised());
+} // ajouter consume

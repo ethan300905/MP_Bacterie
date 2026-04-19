@@ -89,7 +89,7 @@ bool Laboratory::contains(size_t index, const CircularBoundary& autre) const{
 }
 
 bool Laboratory::doesCollideWithDish(size_t index, const CircularBoundary& body) const{
-    return CultureDishes_[index] -> isColliding(body);
+    return !CultureDishes_[index] -> contains(body);
 }
 
 void Laboratory::checkCollidingNutriment(size_t index, Bacterium* bacterium) const{
