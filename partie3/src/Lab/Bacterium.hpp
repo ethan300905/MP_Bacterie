@@ -7,6 +7,7 @@
 #include "../Utility/Types.hpp"
 #include <Utility/MutableNumber.hpp>
 
+
 class Bacterium: public CircularBoundary, public Drawable, public Updatable
 {
 public:
@@ -28,10 +29,12 @@ public:
     bool getIsAbstinence() const;
     sf::Time TimeSinceLastMeal() const;
     Quantity getEnergy() const;
+    Vec2d getDirection() const;
 
     // Setters
     void resetTimeSinceLastMeal();
     void addEnergy(Quantity);
+    void setDirection(Vec2d);
 
 private:
 

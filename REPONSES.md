@@ -140,11 +140,21 @@
 
 - Pour encapsuler la logique consommation. Si on retournait un Nutriment*, la bactérie devrait gérer elle-même la modification du nutriment. 
 - En faisant une méthode check..., on centralise la gestion des collisions et des effets (énergie/quantité) au même endroit.
+*************************************************
+##Q3.16
+
 - La méthode à modifier est CultureDish::update(sf::Time dt). Elle doit désormais parcourir la collection des bactéries pour appeler leur propre méthode update, 
 - tout en gérant la suppression des individus morts afin de libérer la mémoire.
 *************************************************
-##Q3.16
+##Q3.17
 
 - Il faut modifier la méthode update dans la classe CultureDish car c'est cette classe qui a accès aux Nutrient et Bacterium. 
 - Il faut ajouter une boucle for qui itère sur chaque bactérie et nutriments et vérifie si leur quantité est plus grande que 0 ou non, dans le cas échéant,
 - il faut le supprimer correctement. 
+*************************************************
+##Q3.18
+
+- En utilisant un lien d'héritage; on peut considérer, dans notre simulation, qu'une bactérie est une équation mathématique. L'avantage est que la bactérie peut accéder directement à ses propres variables internes pour calculer la force sans avoir besoin d'intermédiaire. 
+- Il faut donc faire hériter à la classe MonotrichousBacterium la classe DiffEqFunction.
+- On y définit la méthode f()
+- On ajoute un attribut vitesse de type Vec2d, car notre bactérie possède à présent une vitesse. 

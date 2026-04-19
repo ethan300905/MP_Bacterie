@@ -157,8 +157,8 @@ find_sfml()
 
 # Unit tests
 # UCOMMENT THE RELEVANT TARGETS WHEN READY TO TEST
-add_executable(mutableTest ${TEST_DIR}/UnitTests/MutablePropertyTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
-configure_sfml_executable(mutableTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+#add_executable(mutableTest ${TEST_DIR}/UnitTests/MutablePropertyTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
+#configure_sfml_executable(mutableTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
 #add_executable(circularBoundaryTest ${TEST_DIR}/UnitTests/CircularBoundaryTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
 #configure_sfml_executable(circularBoundaryTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
@@ -169,11 +169,11 @@ configure_sfml_executable(mutableTest "${sfml_include_dirs}" "${sfml_cxx_standar
 # Graphical tests
 # UCOMMENT THE RELEVANT TARGETS WHEN READY TO TEST
 # bacteriaTest 
-add_executable(bacteriaTest ${TEST_DIR}/GraphicalTests/BacteriaTest.cpp ${SOURCES_GFX})
-configure_sfml_executable(bacteriaTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+#add_executable(bacteriaTest ${TEST_DIR}/GraphicalTests/BacteriaTest.cpp ${SOURCES_GFX})
+#configure_sfml_executable(bacteriaTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
-#add_executable(monotrichousTest ${TEST_DIR}/GraphicalTests/MonotrichousTest.cpp ${SOURCES_GFX})
-#configure_sfml_executable(monotrichousTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
+add_executable(monotrichousTest ${TEST_DIR}/GraphicalTests/MonotrichousTest.cpp ${SOURCES_GFX})
+configure_sfml_executable(monotrichousTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")
 
 #add_executable(nutrientTest ${TEST_DIR}/GraphicalTests/NutrientTest.cpp ${SOURCES_GFX})
 #configure_sfml_executable(nutrientTest "${sfml_include_dirs}" "${sfml_cxx_standard}" "${sfml_link_libs}")

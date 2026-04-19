@@ -4,7 +4,7 @@
 
 Bacterium::Bacterium(const Quantity& energy, const Vec2d& position, Vec2d direction, const Quantity& rayon , MutableColor color)
 // parameters_() appelle le constructeur par défaut de map et l'initialise donc à vide, isAbstinent_ est initialisée par défaut à false.
-   : CircularBoundary(position,rayon),energy_(energy),  color_(color), direction_(direction),
+   : CircularBoundary(position,rayon), energy_(energy),  color_(color), direction_(direction),
      isAbstinent_(false), parameters_(), timeSinceLastMeal_(sf::Time::Zero)
 {
     index_=getAppEnv().getCurrentDishId();
@@ -40,6 +40,14 @@ bool Bacterium::isDead() const { return (energy_ <= 0); }
 
 bool Bacterium::getIsAbstinence() const{
     return isAbstinent_;
+}
+
+Vec2d Bacterium::getDirection() const{
+    return direction_;
+}
+
+void Bacterium::setDirection(Vec2d direction ){
+    direction_ = direction;
 }
 
 sf::Time Bacterium::TimeSinceLastMeal() const{
