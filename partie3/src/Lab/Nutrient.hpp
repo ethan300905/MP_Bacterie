@@ -2,7 +2,7 @@
 #pragma once
 #include <Lab/CircularBoundary.hpp>
 #include <../Utility/Vec2d.hpp>
-#include "../utility/Types.hpp"
+#include "../Utility/Types.hpp"
 #include <SFML/Graphics.hpp>
 #include <Interface/Drawable.hpp>
 #include <Interface/Updatable.hpp>

@@ -1,0 +1,8 @@
+
+    {
+    "cmake.buildDirectory": "${workspaceFolder}/partie3/build-src-Desktop-Debug",
+    "cmake.sourceDirectory": "${workspaceFolder}/partie3/src",
+    "cmake.debugConfig": {
+        "cwd": "${workspaceFolder}/partie3/build-src-Desktop-Debug"
+    }
+}

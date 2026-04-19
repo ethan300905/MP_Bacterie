@@ -4,7 +4,7 @@
 #include <Lab/CircularBoundary.hpp>
 #include <Utility/Vec2d.hpp>
 #include <Utility/MutableColor.hpp>
-#include "../utility/Types.hpp"
+#include "../Utility/Types.hpp"
 #include <Utility/MutableNumber.hpp>
 
 class Bacterium: public CircularBoundary, public Drawable, public Updatable
