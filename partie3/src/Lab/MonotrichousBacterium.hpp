@@ -13,4 +13,3 @@ public:
     Vec2d getSpeedVector() const;
 };
 
-
