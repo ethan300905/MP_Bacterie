@@ -75,5 +75,4 @@ size_t Bacterium::getIndex() const{
     return index_;
 }
 
-// vscode ?
-// qtc ?
+
