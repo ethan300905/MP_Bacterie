@@ -30,6 +30,7 @@ public:
     sf::Time TimeSinceLastMeal() const;
     Quantity getEnergy() const;
     Vec2d getDirection() const;
+    size_t getIndex() const;
 
     // Setters
     void resetTimeSinceLastMeal();

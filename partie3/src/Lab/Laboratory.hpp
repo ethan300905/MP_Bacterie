@@ -27,6 +27,7 @@ public:
     void addBacterium(Bacterium* );
     bool contains(size_t, const CircularBoundary&) const;
     bool doesCollideWithDish(size_t, const CircularBoundary&) const;
+    bool doesCollideWithDish(size_t, const Vec2d&) const;
     void checkCollidingNutriment(size_t, Bacterium*) const;
 private:
     std::vector<CultureDish*> CultureDishes_;

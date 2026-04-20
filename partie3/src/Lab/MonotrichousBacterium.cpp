@@ -26,18 +26,27 @@ Vec2d MonotrichousBacterium::f(Vec2d position, Vec2d speed) const{
 }
 
 Vec2d MonotrichousBacterium::getSpeedVector() const {
-    // Utilise explicitement le getter pour être sûr de la valeur
     return getDirection() * 50.0; 
 }
 
 void MonotrichousBacterium::move(sf::Time dt){
+
     Vec2d currentPos = getPosition(); 
-    
     Vec2d currentSpeed = getSpeedVector();
     DiffEqResult nextState = stepDiffEq(currentPos, currentSpeed, dt, *this);
+
+    // Si la nouvelle position sort du plat, inverser et recalculer
+    if(getAppEnv().doesCollideWithDish(getIndex(), nextState.position)){
+        setDirection(-getDirection());
+        currentSpeed = getSpeedVector(); // recalcul avec nouvelle direction
+        nextState = stepDiffEq(currentPos, currentSpeed, dt, *this); // recalcul
+    }
+
     Vec2d displacement = nextState.position - getPosition();
     if (displacement.lengthSquared() > 0.001) {
         this->CircularBoundary::move(displacement);
 }
 setDirection(nextState.speed.normalised());
-} // ajouter consume
+consumeEnergy(displacement.length() * getAppConfig()["monotrichous"]["energy"]["consumption factor"].toDouble());
+
+}

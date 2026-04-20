@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":0.5,
+         "factor":5,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -113,7 +113,7 @@
             }
         },
         "energy" : {
-            "consumption factor" : 0,
+            "consumption factor" : 0.1,
             "division" : 120,
             "max" : 100,
             "min" : 50

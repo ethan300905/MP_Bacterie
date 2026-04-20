@@ -156,5 +156,4 @@
 
 - En utilisant un lien d'héritage; on peut considérer, dans notre simulation, qu'une bactérie est une équation mathématique. L'avantage est que la bactérie peut accéder directement à ses propres variables internes pour calculer la force sans avoir besoin d'intermédiaire. 
 - Il faut donc faire hériter à la classe MonotrichousBacterium la classe DiffEqFunction.
-- On y définit la méthode f()
-- On ajoute un attribut vitesse de type Vec2d, car notre bactérie possède à présent une vitesse. 
+- On y définit la méthode f(), comme MonotrichousBacterium est une DiffEqFunction, on peut passer en argument un MonotrichousBacterium à une méthode de la classe DiffEqFunction et cette méthode pourra alors agir de façons polymorphique. 

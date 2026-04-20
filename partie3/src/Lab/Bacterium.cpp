@@ -65,6 +65,12 @@ void Bacterium::addEnergy(Quantity energy){
 Quantity Bacterium::getEnergy() const {
     return energy_;
 }
+
 void Bacterium::consumeEnergy(Quantity qt){
     energy_ -= qt;
+}
+
+
+size_t Bacterium::getIndex() const{
+    return index_;
 }
