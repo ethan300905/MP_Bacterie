@@ -74,3 +74,5 @@ void Bacterium::consumeEnergy(Quantity qt){
 size_t Bacterium::getIndex() const{
     return index_;
 }
+
+// vscode ?
