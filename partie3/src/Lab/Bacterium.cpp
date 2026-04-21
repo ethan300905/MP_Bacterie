@@ -14,9 +14,9 @@ Bacterium::Bacterium(const Quantity& energy, const Vec2d& position, Vec2d direct
 void Bacterium::update(sf::Time dt){
     timeSinceLastMeal_ += dt;
     move(dt);
-    if(getAppEnv().doesCollideWithDish(index_, *this)){
-        direction_ = -direction_;
-    }
+    //if(getAppEnv().doesCollideWithDish(index_, *this)){
+    //    direction_ = -direction_;
+    //}
 
     getAppEnv().checkCollidingNutriment(index_, this);
 }

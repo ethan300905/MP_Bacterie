@@ -113,8 +113,6 @@ void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
                     const Quantity missingEnergy = std::max(0.0, maxEnergy - bacteria->getEnergy());
                     const Quantity amountEatable = std::min(maxMeal, missingEnergy);
 
-                    
-
                     Quantity amountEaten = nutrient->takeQuantity(amountEatable);
                     bacteria->addEnergy(amountEaten);
                     return;
