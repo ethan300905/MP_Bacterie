@@ -1,0 +1,24 @@
+-------------------------------
+	SWARM_TEST
+set food generator delay 
+to high value (1e08)
+to prevent food generation
+--------- Help ----------------
+MW/MP : mouse wheel/position,
+CC : current control
+-------------------------------
+Space	: toggle pause
+D	: toggle debug mode
+R	: resets simulation
+MW	: Zoom
+Esc	: close window
+C	: refresh config
+Arrows	: move simulation
+	view
+Tab/Q	: switch to next
+          control
+PageUp/X    : increase CC
+PageDown/Y  : decrease CC
+1-3	: add GroupMotilty bacterium
+          of type 1-3 at MP
+N/Shift-N : add NutrientB/A at MP
