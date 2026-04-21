@@ -6,9 +6,11 @@
 #include <Utility/MutableColor.hpp>
 #include "../Utility/Types.hpp"
 #include <Utility/MutableNumber.hpp>
+#include "Utility/DiffEqSolver.hpp"
 
+typedef double Radians;
 
-class Bacterium: public CircularBoundary, public Drawable, public Updatable
+class Bacterium: public CircularBoundary, public Drawable, public Updatable, public DiffEqFunction
 {
 public:
 
@@ -31,11 +33,16 @@ public:
     Quantity getEnergy() const;
     Vec2d getDirection() const;
     size_t getIndex() const;
+    MutableColor getColor() const;
 
     // Setters
     void resetTimeSinceLastMeal();
     void addEnergy(Quantity);
     void setDirection(Vec2d);
+    void addAngle_Dir(Radians);
+
+protected:
+    Radians getAngle_dir() const;
 
 private:
 
@@ -46,7 +53,7 @@ private:
     std::map<std::string, MutableNumber> parameters_;
     size_t index_;
     sf::Time timeSinceLastMeal_;
-
+    Radians angle_direction_;
 };
 
 

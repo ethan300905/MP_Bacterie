@@ -155,5 +155,19 @@
 ##Q3.18
 
 - En utilisant un lien d'héritage; on peut considérer, dans notre simulation, qu'une bactérie est une équation mathématique. L'avantage est que la bactérie peut accéder directement à ses propres variables internes pour calculer la force sans avoir besoin d'intermédiaire. 
-- Il faut donc faire hériter à la classe MonotrichousBacterium la classe DiffEqFunction.
-- On y définit la méthode f(), comme MonotrichousBacterium est une DiffEqFunction, on peut passer en argument un MonotrichousBacterium à une méthode de la classe DiffEqFunction et cette méthode pourra alors agir de façons polymorphique. 
+- Il faut donc faire hériter à la classe Bacterium la classe DiffEqFunction.
+- Comme DiffEqFunction est une classe abstraite on doit définir dans les sous-classes la méthode f(). 
+- On y définit donc la méthode f(), comme MonotrichousBacterium est une DiffEqFunction, on peut passer en argument un MonotrichousBacterium à une méthode de la classe DiffEqFunction et cette méthode pourra alors agir de façons polymorphique. 
+
+
+*************************************************
+##Q3.19
+
+- Le temps t est un attribut des MonotrichousBacterium, car il est spécifique à la bactérie en question.
+- Il est initialisé dans le constructeur de MonotrichousBacterium, et est modifié dans la fonction move de MonotrichousBacterium après chaque déplacement.
+
+*************************************************
+##Q3.20
+
+- On a ajouté un attribut à la classe Bacterium angle_direction_ comme toute les bactéries possède un angle. 
+- Ainsi on initalise cette attribut dans le constructeur de la classe Bacterium et on la modifie dans la méthode move à chaque changement de direction. 

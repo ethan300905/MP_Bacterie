@@ -24,7 +24,8 @@ MutableNumber::MutableNumber(j::Value const& config)  // Surcharge de constructe
       min_  (config["min"].toDouble())
 {
     setValue(config["initial"].toDouble());
-    if(max_<min_){
+    if(max_<min_)
+    {
         throw std::invalid_argument("La valeur min est supérieure à la valeur max");    // on vérifie le cas limite
     }
 }

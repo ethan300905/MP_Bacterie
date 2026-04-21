@@ -5,7 +5,7 @@
 Bacterium::Bacterium(const Quantity& energy, const Vec2d& position, Vec2d direction, const Quantity& rayon , MutableColor color)
 // parameters_() appelle le constructeur par défaut de map et l'initialise donc à vide, isAbstinent_ est initialisée par défaut à false.
    : CircularBoundary(position,rayon), energy_(energy),  color_(color), direction_(direction),
-     isAbstinent_(false), parameters_(), timeSinceLastMeal_(sf::Time::Zero)
+     isAbstinent_(false), parameters_(), timeSinceLastMeal_(sf::Time::Zero), angle_direction_(direction.angle())
 {
     index_=getAppEnv().getCurrentDishId();
 }
@@ -33,7 +33,7 @@ void Bacterium::drawOn(sf::RenderTarget& target) const{
         auto const text = buildText(std::to_string(energy),getPosition()+deplacement,getAppFont(),15,sf::Color::Black,0);
         target.draw(text);
     }
-    }
+}
 
 bool Bacterium::isDead() const { return (energy_ <= 0); }
 
@@ -75,4 +75,14 @@ size_t Bacterium::getIndex() const{
     return index_;
 }
 
+MutableColor Bacterium::getColor() const {
+    return color_;
+}
 
+Radians Bacterium::getAngle_dir() const{
+    return angle_direction_;
+}
+
+void Bacterium::addAngle_Dir(Radians rotation){
+    angle_direction_ += rotation;
+}
