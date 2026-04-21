@@ -108,7 +108,13 @@ void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
             for(auto& nutrient:Nutrientsource_){
                 if (nutrient->isColliding(*bacteria)){
                     bacteria->resetTimeSinceLastMeal();
-                    Quantity amountEatable = bacteria->getConfig()["meal"]["max"].toDouble();
+                    const Quantity maxMeal = bacteria->getConfig()["meal"]["max"].toDouble();
+                    const Quantity maxEnergy = bacteria->getConfig()["energy"]["max"].toDouble();
+                    const Quantity missingEnergy = std::max(0.0, maxEnergy - bacteria->getEnergy());
+                    const Quantity amountEatable = std::min(maxMeal, missingEnergy);
+
+                    
+
                     Quantity amountEaten = nutrient->takeQuantity(amountEatable);
                     bacteria->addEnergy(amountEaten);
                     return;
