@@ -19,9 +19,9 @@ MonotrichousBacterium::MonotrichousBacterium(const Vec2d& position)
     lastScore_(getAppEnv().getPositionScore(position, getIndex())),
     timeSinceLastTumble_(sf::Time::Zero)
  {
-    addProperty("speed", getAppConfig()["monotrichous"]["speed"]);
-    addProperty("lambda better", getAppConfig()["monotrichous"]["tumble"]["better"]);
-    addProperty("lambda worse",getAppConfig()["monotrichous"]["tumble"]["worse"]);
+    addProperty("speed", MutableNumber::positive(getAppConfig()["monotrichous"]["speed"]));
+    addProperty("lambda better", MutableNumber::positive(getAppConfig()["monotrichous"]["tumble"]["better"]));
+    addProperty("lambda worse",MutableNumber::positive((getAppConfig()["monotrichous"]["tumble"]["worse"])));
 }
 
 j::Value const& MonotrichousBacterium::getConfig() const{
