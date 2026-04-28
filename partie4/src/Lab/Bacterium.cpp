@@ -39,7 +39,7 @@ void Bacterium::drawOn(sf::RenderTarget& target) const{
 bool Bacterium::isDead() const { return (energy_ <= 0); }
 
 
-bool Bacterium::getIsAbstinence() const{
+bool Bacterium::getIsAbstinent() const{
     return isAbstinent_;
 }
 

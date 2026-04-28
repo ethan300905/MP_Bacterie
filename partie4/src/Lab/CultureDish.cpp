@@ -121,7 +121,7 @@ void CultureDish::reset(){
 
 
 void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
-    if (!bacteria -> getIsAbstinence()){
+    if (!bacteria -> getIsAbstinent()){
         if(bacteria->TimeSinceLastMeal() > sf::seconds(bacteria->getConfig()["meal"]["delay"].toDouble())){
             for(auto& nutrient:Nutrientsource_){
                 if (nutrient->isColliding(*bacteria)){

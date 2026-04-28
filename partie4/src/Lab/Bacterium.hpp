@@ -28,7 +28,7 @@ public:
     void consumeEnergy(Quantity);
 
     // Getters
-    bool getIsAbstinence() const;
+    bool getIsAbstinent() const;
     sf::Time TimeSinceLastMeal() const;
     Quantity getEnergy() const;
     Vec2d getDirection() const;

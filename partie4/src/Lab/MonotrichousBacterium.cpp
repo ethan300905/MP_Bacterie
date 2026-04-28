@@ -84,18 +84,22 @@ void MonotrichousBacterium::move(sf::Time dt){
         lambda = 0.05;
     }
     double tumbleProbability = 1- exp( -timeSinceLastTumble_.asSeconds()/lambda);
+    double bestScore = score;
     if(bernoulli(tumbleProbability) == 1){
         timeSinceLastTumble_ = sf::Time::Zero;
+
         if (getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "single random vector"){
             Vec2d randomDirection = Vec2d::fromRandomAngle();
             setDirection(randomDirection);
         }else if(getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "best of N"){
-            int N = 20; //value randomly choosed
+            int N = 100; //value randomly choosed
             Vec2d bestDirection = getDirection();
             for(int i(0); i<N ; i++){
                 Vec2d randomDirection = Vec2d::fromRandomAngle();
                 Vec2d newPosition = getPosition() + randomDirection * getSpeedVector().length();
-                if(getAppEnv().getPositionScore(newPosition, getIndex()) > score){
+                double candidateScore = getAppEnv().getPositionScore(newPosition, getIndex());
+                if( candidateScore > score){
+                    bestScore = candidateScore;
                     bestDirection = randomDirection;
                 }
 
@@ -104,7 +108,7 @@ void MonotrichousBacterium::move(sf::Time dt){
         }
 
     }
-    lastScore_ = score;
+    lastScore_ = bestScore;
 }
 
 void MonotrichousBacterium::drawOn(sf::RenderTarget& target) const{
