@@ -54,5 +54,31 @@
 
 - Installation et découverte de la partie 3
 
+*************************************************
+##04.04 (samedi)
 
+- Début du code de l'étape 3.1
+- Création des classe NutrientA, NutrientB, NutrientGenerator.
 
+*************************************************
+##14.04 (mardi)
+
+- Fin de l'étape 3.1
+- Début du code de l'étape 3.2 et de l'étape 3.3 simultanément
+- Problème avec git à propos des pushs (conflit étant donnée qu'on a travaillé à 2 en même temps)
+- Écriture de la classe MutableNumber
+- Écriture de la classe Bacterium et ébauche de la classe MonotrichiousBacterium
+
+*************************************************
+##16.04 (jeudi)
+
+- Finalisation des étapes 3.2, et 3.3
+- Écriture de la classe MutableColor
+
+*************************************************
+##21.04 (mardi)
+
+- Répartition des tâches pour l'étape 3.4
+- Écriture de l'étape 3.4 intégralement
+- Fin de l'écriture de MonotrichiousBacterium 
+- Réflexion sur les cas limites liés a certains éléments du code 
