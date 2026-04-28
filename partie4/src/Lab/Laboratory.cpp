@@ -101,3 +101,7 @@ bool Laboratory::doesCollideWithDish(size_t index, const Vec2d& point) const{
 void Laboratory::checkCollidingNutriment(size_t index, Bacterium* bacterium) const{
     CultureDishes_[index] -> checkCollidingNutriment(bacterium);
 }
+
+double Laboratory::getPositionScore (const Vec2d& p, size_t index){
+    return CultureDishes_[index] -> getPositionscore(p);
+}

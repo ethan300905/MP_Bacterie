@@ -29,6 +29,7 @@ public:
     void checkCollidingNutriment(Bacterium*) const;
 
     void reset();
+    double getPositionscore(const Vec2d&);
 
 private:
     std::vector<Bacterium*> Bacteriums_;

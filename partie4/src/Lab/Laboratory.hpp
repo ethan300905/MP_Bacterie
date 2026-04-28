@@ -29,6 +29,7 @@ public:
     bool doesCollideWithDish(size_t, const CircularBoundary&) const;
     bool doesCollideWithDish(size_t, const Vec2d&) const;
     void checkCollidingNutriment(size_t, Bacterium*) const;
+    double getPositionScore (const Vec2d&, size_t);
 private:
     std::vector<CultureDish*> CultureDishes_;
     size_t indice_;

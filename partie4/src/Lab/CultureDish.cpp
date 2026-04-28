@@ -121,3 +121,20 @@ void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
         }
     }
 }
+
+
+
+double CultureDish::getPositionscore(const Vec2d& p){
+
+    double score(0.);
+    double puissance = (getAppConfig()["culture dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["culture dish"]["gradient"]["exponent"]["min"].toDouble())/2;
+    for(auto& nutrient: Nutrientsource_){
+        score += nutrient -> getQuantity() / pow(distance(p, nutrient -> getPosition()), puissance);
+    }
+    return score;
+}
+
+
+
+
+

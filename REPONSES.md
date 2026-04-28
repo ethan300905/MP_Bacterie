@@ -171,3 +171,42 @@
 
 - On a ajouté un attribut à la classe Bacterium angle_direction_ comme toute les bactéries possède un angle. 
 - Ainsi on initalise cette attribut dans le constructeur de la classe Bacterium et on la modifie dans la méthode move à chaque changement de direction. 
+
+
+*************************************************
+##Q4.1
+
+- La fonction getPositionscore de Laboratory appelle la fonction getPositionscore de CultureDish car c'est elle qui a accès a la liste de Nutrient.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
