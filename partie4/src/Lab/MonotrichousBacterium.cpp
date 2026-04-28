@@ -18,7 +18,11 @@ MonotrichousBacterium::MonotrichousBacterium(const Vec2d& position)
     amplitudeCounter_(uniform(0.,PI)),
     lastScore_(getAppEnv().getPositionScore(position, getIndex())),
     timeSinceLastTumble_(sf::Time::Zero)
- {}
+ {
+    addProperty("speed", getAppConfig()["monotrichous"]["speed"]);
+    addProperty("lambda better", getAppConfig()["monotrichous"]["tumble"]["better"]);
+    addProperty("lambda worse",getAppConfig()["monotrichous"]["tumble"]["worse"]);
+}
 
 j::Value const& MonotrichousBacterium::getConfig() const{
 
@@ -35,7 +39,7 @@ Vec2d MonotrichousBacterium::f(Vec2d position, Vec2d speed) const{
 }
 
 Vec2d MonotrichousBacterium::getSpeedVector() const {
-    return getDirection() * 25.0; 
+    return getDirection() * getProperty("speed").get();
 }
 
 void MonotrichousBacterium::move(sf::Time dt){
@@ -79,9 +83,9 @@ void MonotrichousBacterium::move(sf::Time dt){
 
     double lambda = 0.;
     if (score >= lastScore_){
-        lambda = 5;
+        lambda = getProperty("lambda better").get();
     }else {
-        lambda = 0.05;
+        lambda = getProperty("lambda worse").get();
     }
     double tumbleProbability = 1- exp( -timeSinceLastTumble_.asSeconds()/lambda);
     

@@ -36,6 +36,24 @@ void Bacterium::drawOn(sf::RenderTarget& target) const{
     }
 }
 
+void Bacterium::mutate(){
+
+}
+
+void Bacterium::addProperty(const std::string& key, MutableNumber value){
+    parameters_[key]= value;
+}
+
+MutableNumber Bacterium::getProperty(const std::string& key) const{
+    auto paire = parameters_.find(key);
+    if(paire == parameters_.end()){
+        throw std::out_of_range("Clé invalide : " + key);
+    }else{
+        return paire -> second;
+    }
+}
+
+
 bool Bacterium::isDead() const { return (energy_ <= 0); }
 
 

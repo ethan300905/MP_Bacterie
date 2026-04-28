@@ -23,6 +23,10 @@ public:
     virtual void move(sf::Time) = 0;
     virtual j::Value const& getConfig() const = 0;
 
+    void mutate();
+    void addProperty(const std::string& key, MutableNumber value);
+    MutableNumber getProperty(const std::string&) const;
+
     // Utilitaire
     bool isDead() const;
     void consumeEnergy(Quantity);

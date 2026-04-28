@@ -178,6 +178,39 @@
 
 - La fonction getPositionscore de Laboratory appelle la fonction getPositionscore de CultureDish car c'est elle qui a accès a la liste de Nutrient.
 
+*************************************************
+##Q4.2
+
+- On a ajouté lastScore et timeSinceLastTumble comme attributs de la classe MonotrichousBacterium. On considère pour l'instant que seules les bactéries a flagelle unique se dirigent vers les nutriments.
+- On initialise ces attributs dans le constructeur et on les mets à jour dans la méthode move.
+- Les bactéries ont besoins de ces attributs pour comparer leur état à celui d'avant.
+
+*************************************************
+##Q4.3
+
+- On ajoute la méthode de mutation dans la classe bactérium car toutes les bactlries vont muter de la meme façon.
+
+*************************************************
+##Q4.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
