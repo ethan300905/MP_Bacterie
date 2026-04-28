@@ -23,9 +23,14 @@ public:
     bool addNutrient(Nutrient*);
     void update(sf::Time) override;
     void drawOn(sf::RenderTarget&) const override;
+
     void changeTemperature(double delta);
+    void changeGradientexponent(double delta);
     void resetTemperature();
+    void resetGradientExponent();
     double getTemperature() const;
+    double getGradientExponent() const;
+
     void checkCollidingNutriment(Bacterium*) const;
 
     void reset();
@@ -35,5 +40,6 @@ private:
     std::vector<Bacterium*> Bacteriums_;
     std::vector<Nutrient*> Nutrientsource_;
     double temperature_;
+    double puissance_;
 };
 

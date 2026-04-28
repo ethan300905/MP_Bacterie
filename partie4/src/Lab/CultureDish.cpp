@@ -10,6 +10,8 @@ CultureDish::CultureDish(Vec2d position, double rayon)
 
 {
  temperature_ = getAppConfig()["culture dish"]["temperature"]["default"].toDouble();
+ puissance_ = (getAppConfig()["culture dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["culture dish"]["gradient"]["exponent"]["min"].toDouble())/2;
+
 }
 
 CultureDish::~CultureDish(){
@@ -80,14 +82,30 @@ void CultureDish::changeTemperature(double delta){
     /*}else if ((temperature_ + delta) > getAppConfig()["culture dish"]["temperature"]["max"].toDouble()){
         temperature_ = getAppConfig()["culture dish"]["temperature"]["max"].toDouble();
     }*/ // peut-etre si nombre permet pas d'aller au max car pas multiple le force 99 + 2 pas possible mais quand même à 100 ???
+    }
+}
 
+void CultureDish::changeGradientexponent(double delta){
+    if ((getAppConfig()["culture dish"]["gradient"]["exponent"]["min"].toDouble() <= (puissance_ + delta)) &&
+         (puissance_ + delta) <= getAppConfig()["culture dish"]["gradient"]["exponent"]["max"].toDouble()){
+    puissance_ += delta;
+    }
 }
-}
+
 void CultureDish::resetTemperature(){
     temperature_ = getAppConfig()["culture dish"]["temperature"]["default"].toDouble();
 }
+
+void CultureDish::resetGradientExponent(){
+    puissance_ = (getAppConfig()["culture dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["culture dish"]["gradient"]["exponent"]["min"].toDouble())/2;
+}
+
 double CultureDish::getTemperature() const{
     return temperature_;
+}
+
+double CultureDish::getGradientExponent() const{
+    return puissance_;
 }
 
 void CultureDish::reset(){
@@ -127,9 +145,8 @@ void CultureDish::checkCollidingNutriment(Bacterium* bacteria) const{
 double CultureDish::getPositionscore(const Vec2d& p){
 
     double score(0.);
-    double puissance = (getAppConfig()["culture dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["culture dish"]["gradient"]["exponent"]["min"].toDouble())/2;
     for(auto& nutrient: Nutrientsource_){
-        score += nutrient -> getQuantity() / pow(distance(p, nutrient -> getPosition()), puissance);
+        score += nutrient -> getQuantity() / pow(distance(p, nutrient -> getPosition()), puissance_);
     }
     return score;
 }

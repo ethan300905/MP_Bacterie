@@ -19,6 +19,10 @@ public:
     void decreaseTemperature();
     double getTemperature() const;
     double getTemperature(size_t) const;
+    void decreaseGradientExponent();
+    void increaseGradientExponent();
+    double getGradientExponent() const;
+    double getGradientExponent(size_t) const;
     void reset();
     void resetControls();
     void drawOn(sf::RenderTarget&) const override;

@@ -711,6 +711,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
                     mLab->decreaseTemperature();
                     break;
                 case GRADIENT :
+                    mLab -> decreaseGradientExponent();
                     break;
                 case STATS:
                     break;
@@ -729,6 +730,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
                     mLab->increaseTemperature();
                     break;
                 case GRADIENT :
+                    mLab -> increaseGradientExponent();
                     break;
                 case STATS:
                     break;
@@ -950,7 +952,8 @@ void Application::drawOneControl(sf::RenderWindow& target
 			text += to_nice_string(mLab->getTemperature());
 			break;
 		case GRADIENT :
-            text = "Gradient exponent : none";
+            text = "Gradient exponent : ";
+            text += to_nice_string(mLab->getGradientExponent());
 			break;
 		case STATS :
             text = "Current stat : none";

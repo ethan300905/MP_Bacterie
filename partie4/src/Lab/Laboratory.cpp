@@ -53,6 +53,22 @@ double Laboratory::getTemperature(size_t index) const {
     return CultureDishes_[index]->getTemperature();
 }
 
+void Laboratory::decreaseGradientExponent(){
+    (CultureDishes_[indice_])->changeGradientexponent(-getAppConfig()["culture dish"]["gradient"]["exponent"]["delta"].toDouble());
+}
+
+void Laboratory::increaseGradientExponent(){
+    (CultureDishes_[indice_])->changeGradientexponent(getAppConfig()["culture dish"]["gradient"]["exponent"]["delta"].toDouble());
+}
+
+double Laboratory::getGradientExponent() const{
+    return CultureDishes_[indice_]->getGradientExponent();
+}
+
+double Laboratory::getGradientExponent(size_t index) const {
+    return CultureDishes_[index]->getGradientExponent();
+}
+
 void Laboratory::reset(){
     CultureDishes_[indice_]->reset();
     resetControls();
@@ -60,6 +76,7 @@ void Laboratory::reset(){
 }
 void Laboratory::resetControls(){
     CultureDishes_[indice_] -> resetTemperature();
+    CultureDishes_[indice_] -> resetGradientExponent();
 }
 void Laboratory::drawOn(sf::RenderTarget& target) const{
     CultureDishes_[indice_] ->drawOn(target);
