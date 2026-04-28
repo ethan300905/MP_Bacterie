@@ -15,12 +15,19 @@ MonotrichousBacterium::MonotrichousBacterium(const Vec2d& position)
     ),
     getAppConfig()["monotrichous"]["color"]
     ),
-    t(uniform(0.,PI))
+    amplitudeCounter_(uniform(0.,PI)),
+    lastScore_(getAppEnv().getPositionScore(position, getIndex())),
+    timeSinceLastTumble_(sf::Time::Zero)
  {}
 
 j::Value const& MonotrichousBacterium::getConfig() const{
 
     return getAppConfig()["monotrichous"];
+}
+
+void MonotrichousBacterium::update(sf::Time dt){
+    timeSinceLastTumble_ += dt;
+    Bacterium::update(dt);
 }
 
 Vec2d MonotrichousBacterium::f(Vec2d position, Vec2d speed) const{
@@ -53,7 +60,7 @@ void MonotrichousBacterium::move(sf::Time dt){
     if (displacement.lengthSquared() > 0.001) {
         this->CircularBoundary::move(displacement);
 }
-    t += 3 * dt.asSeconds();
+    amplitudeCounter_ += 3 * dt.asSeconds();
 
     Vec2d nextDir = nextState.speed.normalised();
     Radians targetAngle = nextDir.angle();
@@ -68,18 +75,48 @@ void MonotrichousBacterium::move(sf::Time dt){
 
     consumeEnergy(displacement.length() * getAppConfig()["monotrichous"]["energy"]["consumption factor"].toDouble());
 
+    double score = getAppEnv().getPositionScore(getPosition(),getIndex());
+
+    double lambda = 0.;
+    if (score >= lastScore_){
+        lambda = 5;
+    }else {
+        lambda = 0.05;
+    }
+    double tumbleProbability = 1- exp( -timeSinceLastTumble_.asSeconds()/lambda);
+    if(bernoulli(tumbleProbability == 1)){
+        timeSinceLastTumble_ = sf::Time::Zero;
+        if (getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "single random vector"){
+            Vec2d randomDirection = Vec2d::fromRandomAngle();
+            setDirection(randomDirection);
+        }else if(getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "best of N"){
+            int N = 20; //value randomly choosed
+            Vec2d bestDirection;
+            for(int i(0); i<N ; i++){
+                Vec2d randomDirection = Vec2d::fromRandomAngle();
+                Vec2d newPosition = getPosition() + randomDirection * getSpeedVector().length();
+                if(getAppEnv().getPositionScore(newPosition, getIndex()) > score){
+                    bestDirection = randomDirection;
+                }
+
+            }
+            setDirection(bestDirection);
+        }
+
+    }
+    lastScore_ = score;
 }
 
 void MonotrichousBacterium::drawOn(sf::RenderTarget& target) const{
     Bacterium::drawOn(target);
     auto set_of_points = sf::VertexArray(sf::PrimitiveType::TriangleStrip);
     set_of_points.append({{0,0}, getColor().MutableColor::getColor()});
-    for(double i(1); i<= 30; ++i){
+    for(int i(1); i<= 30; ++i){
         float x = static_cast<float>(-i* getRadius()/10.f);
-        float y = static_cast<float>(getRadius() * sin(t) * sin(2*i / 10.0));
+        float y = static_cast<float>(getRadius() * sin(amplitudeCounter_) * sin(2*i / 10.0));
         set_of_points.append({{x,y}, getColor().MutableColor::getColor()});
         
-        float offset_y = static_cast<float>(2+(getRadius() * sin(t) * sin(2*i / 10.0)));
+        float offset_y = static_cast<float>(2+(getRadius() * sin(amplitudeCounter_) * sin(2*i / 10.0)));
         set_of_points.append({{x,offset_y}, getColor().MutableColor::getColor()});
     
     }

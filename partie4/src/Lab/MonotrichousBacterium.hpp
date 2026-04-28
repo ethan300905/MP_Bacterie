@@ -11,8 +11,11 @@ public:
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
     Vec2d getSpeedVector() const;
     void drawOn(sf::RenderTarget&) const override;
+    void update(sf::Time) override;
 
 private:
-    double t;
+    double amplitudeCounter_;
+    double lastScore_;
+    sf::Time timeSinceLastTumble_;
 };
 

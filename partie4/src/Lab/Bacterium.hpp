@@ -54,6 +54,7 @@ private:
     size_t index_;
     sf::Time timeSinceLastMeal_;
     Radians angle_direction_;
+
 };
 
 

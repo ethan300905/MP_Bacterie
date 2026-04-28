@@ -8,6 +8,7 @@ Bacterium::Bacterium(const Quantity& energy, const Vec2d& position, Vec2d direct
      isAbstinent_(false), parameters_(), timeSinceLastMeal_(sf::Time::Zero), angle_direction_(direction.angle())
 {
     index_=getAppEnv().getCurrentDishId();
+
 }
 
 
