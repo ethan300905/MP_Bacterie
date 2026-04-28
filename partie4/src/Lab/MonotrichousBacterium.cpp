@@ -84,31 +84,37 @@ void MonotrichousBacterium::move(sf::Time dt){
         lambda = 0.05;
     }
     double tumbleProbability = 1- exp( -timeSinceLastTumble_.asSeconds()/lambda);
-    double bestScore = score;
-    if(bernoulli(tumbleProbability) == 1){
+    
+
+
+    if(bernoulli(tumbleProbability)){
         timeSinceLastTumble_ = sf::Time::Zero;
 
         if (getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "single random vector"){
-            Vec2d randomDirection = Vec2d::fromRandomAngle();
-            setDirection(randomDirection);
-        }else if(getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "best of N"){
-            int N = 100; //value randomly choosed
+            setDirection(Vec2d::fromRandomAngle());
+        } 
+        else if(getAppConfig()["monotrichous"]["tumble"]["algo"].toString() == "best of N"){
+            int N = 100;
+            double bestScore = score; 
             Vec2d bestDirection = getDirection();
-            for(int i(0); i<N ; i++){
-                Vec2d randomDirection = Vec2d::fromRandomAngle();
-                Vec2d newPosition = getPosition() + randomDirection * getSpeedVector().length();
-                double candidateScore = getAppEnv().getPositionScore(newPosition, getIndex());
-                if( candidateScore > score){
-                    bestScore = candidateScore;
-                    bestDirection = randomDirection;
-                }
 
+            for(int i = 0; i < N; ++i){
+                Vec2d randomDir = Vec2d::fromRandomAngle();
+                // On teste la position au prochain dt
+                Vec2d testPos = getPosition() + randomDir * nextState.speed.length() * dt.asSeconds();
+                double candidateScore = getAppEnv().getPositionScore(testPos, getIndex());
+                
+                if(candidateScore > bestScore){ // On compare au meilleur trouvé
+                    bestScore = candidateScore;
+                    bestDirection = randomDir;
+                }
             }
             setDirection(bestDirection);
         }
-
     }
-    lastScore_ = bestScore;
+
+    lastScore_ = score; 
+
 }
 
 void MonotrichousBacterium::drawOn(sf::RenderTarget& target) const{
