@@ -14,6 +14,7 @@ Bacterium::Bacterium(const Quantity& energy, const Vec2d& position, Vec2d direct
 
 void Bacterium::update(sf::Time dt){
     timeSinceLastMeal_ += dt;
+    mutate();
     move(dt);
     //if(getAppEnv().doesCollideWithDish(index_, *this)){
     //    direction_ = -direction_;
@@ -37,7 +38,10 @@ void Bacterium::drawOn(sf::RenderTarget& target) const{
 }
 
 void Bacterium::mutate(){
-
+    color_.mutate();
+    for(auto& paire : parameters_){
+        paire.second.mutate();
+    }
 }
 
 void Bacterium::addProperty(const std::string& key, MutableNumber value){
