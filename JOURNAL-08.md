@@ -82,3 +82,10 @@
 - Écriture de l'étape 3.4 intégralement
 - Fin de l'écriture de MonotrichiousBacterium 
 - Réflexion sur les cas limites liés a certains éléments du code 
+
+*************************************************
+##28.04 (mardi)
+
+- Découverte de la partie 4
+- ajout de la fonctionnalité de bascluement aux bactéries à flagelles uniques
+- ajout de la fonctionnalité des mutations chez les bactéries
